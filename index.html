@@ -13,6 +13,14 @@
     --soft: #fff5f7;
     --dark: #1a1a2e;
     --cream: #fdf6ec;
+    /* Balloon palette */
+    --b-blue:   #6BC5F8;
+    --b-orange: #FF9240;
+    --b-red:    #E8474C;
+    --b-yellow: #FFD93D;
+    --b-green:  #6BCB77;
+    --b-pink:   #FF6BA8;
+    --b-purple: #C06CF8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,6 +33,10 @@
     color: #fff;
     overflow-x: hidden;
   }
+
+  /* UI elements always on top */
+  #music-btn, #export-btn, #edit-toggle, #edit-panel,
+  #gallery-modal, #lightbox, .save-toast { z-index: 9000 !important; }
 
   /* ─── HERO ─── */
   #hero {
@@ -349,16 +361,89 @@
     to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
   }
 
-  /* ─── FADE IN on scroll ─── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+  /* ─── SCROLL ANIMATIONS ─── */
+  [data-anim] { opacity: 0; }
+  [data-anim].anim-done { animation-fill-mode: both; opacity: 1; }
+
+  @keyframes anim-bounce-up {
+    0%   { transform: translateY(50px) scale(0.92); }
+    55%  { transform: translateY(-12px) scale(1.03); }
+    75%  { transform: translateY(5px) scale(0.98); }
+    90%  { transform: translateY(-3px) scale(1.01); }
+    100% { transform: translateY(0) scale(1); }
   }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes anim-slide-right {
+    0%   { transform: translateX(60px) rotate(3deg); }
+    60%  { transform: translateX(-8px) rotate(-1deg); }
+    80%  { transform: translateX(3px) rotate(0.5deg); }
+    100% { transform: translateX(0) rotate(0); }
   }
+  @keyframes anim-slide-left {
+    0%   { transform: translateX(-60px) rotate(-3deg); }
+    60%  { transform: translateX(8px) rotate(1deg); }
+    80%  { transform: translateX(-3px) rotate(-0.5deg); }
+    100% { transform: translateX(0) rotate(0); }
+  }
+  @keyframes anim-pop {
+    0%   { transform: scale(0.5) rotate(-8deg); }
+    55%  { transform: scale(1.12) rotate(3deg); }
+    75%  { transform: scale(0.94) rotate(-1deg); }
+    90%  { transform: scale(1.04) rotate(1deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+  @keyframes anim-flip-up {
+    0%   { transform: perspective(600px) rotateX(45deg) translateY(25px); }
+    60%  { transform: perspective(600px) rotateX(-6deg) translateY(-4px); }
+    80%  { transform: perspective(600px) rotateX(3deg); }
+    100% { transform: perspective(600px) rotateX(0); }
+  }
+  @keyframes anim-zoom-rotate {
+    0%   { transform: scale(0.4) rotate(20deg); }
+    60%  { transform: scale(1.08) rotate(-4deg); }
+    80%  { transform: scale(0.97) rotate(2deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+  @keyframes anim-drop {
+    0%   { transform: translateY(-45px) scale(0.85); }
+    55%  { transform: translateY(10px) scale(1.04); }
+    75%  { transform: translateY(-5px) scale(0.98); }
+    100% { transform: translateY(0) scale(1); }
+  }
+  @keyframes anim-letter {
+    0%   { transform: translateY(35px) rotate(-10deg) scale(0.75); }
+    60%  { transform: translateY(-6px) rotate(3deg) scale(1.1); }
+    80%  { transform: translateY(2px) rotate(-1deg) scale(0.97); }
+    100% { transform: translateY(0) rotate(0) scale(1); }
+  }
+  .anim-done[data-anim="bounce-up"]     { animation: anim-bounce-up   0.8s cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="slide-right"]   { animation: anim-slide-right  0.75s cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="slide-left"]    { animation: anim-slide-left   0.75s cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="pop"]           { animation: anim-pop          0.7s  cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="flip-up"]       { animation: anim-flip-up      0.8s  cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="zoom-rotate"]   { animation: anim-zoom-rotate  0.7s  cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="drop"]          { animation: anim-drop         0.75s cubic-bezier(.22,.68,0,1.2) both; }
+  .anim-done[data-anim="letter"]        { animation: anim-letter       0.6s  cubic-bezier(.22,.68,0,1.2) both; }
+
+  /* fade-in sections always visible — animation handled by scroll JS */
+  .fade-in { opacity: 1; }
+
+  /* Hero title letter-split */
+  #hero h1 .letter {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #fff, var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: anim-letter 0.7s cubic-bezier(.22,.68,0,1.2) both;
+  }
+  #hero h1.split {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  /* JS controls opacity/animation inline — no CSS opacity:0 rules needed here */
 
   /* ─── TIMELINE ─── */
   .timeline {
@@ -427,9 +512,193 @@
     margin: 1rem 0;
   }
 
+  .tl-subheader {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: rgba(201,168,76,0.55);
+    text-transform: uppercase;
+    margin: 1.8rem 0 0.4rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .tl-dz {
+    margin-top: 0.6rem;
+    border: 1.5px dashed rgba(201,168,76,0.25);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .tl-dz.over { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+  .tl-dz-hint { font-size: 0.7rem; color: rgba(201,168,76,0.4); display: block; text-align: center; }
+  .tl-dz-photos { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.35rem; }
+  .tl-dz-wrap { position: relative; }
+  .tl-dz-wrap img { width: 72px; height: 72px; object-fit: cover; border-radius: 7px; cursor: pointer; display: block; }
+  .tl-dz-wrap button { position: absolute; top: -4px; left: -4px; width: 17px; height: 17px; background: rgba(0,0,0,0.75); color: #fff; border: none; border-radius: 50%; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+  /* ─── PARALLAX WORLD ─── */
+  #pworld {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 500;
+    overflow: hidden;
+  }
+
+  .pb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+    opacity: 0.38;
+    z-index: 2;
+  }
+
+  .pb .pbi {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    position: relative;
+  }
+  /* Balloon shine highlight */
+  .pb .pbi::after {
+    content: '';
+    position: absolute;
+    top: 14%; left: 20%;
+    width: 28%; height: 22%;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    filter: blur(3px);
+  }
+  /* Balloon string */
+  .pb .pbi::before {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px;
+    height: 28px;
+    background: rgba(255,255,255,0.4);
+  }
+
+  /* Individual balloon sizes + colors */
+  .pb-1  { width:160px; height:160px; top:8vh;  left:5vw;  }
+  .pb-1  .pbi { background: radial-gradient(circle at 35% 35%, #a8e0ff, var(--b-blue) 60%, #2d8ec7); }
+
+  .pb-2  { width:130px; height:130px; top:15vh; right:8vw; }
+  .pb-2  .pbi { background: radial-gradient(circle at 35% 35%, #ffc77a, var(--b-orange) 60%, #c05a10); }
+
+  .pb-3  { width:180px; height:180px; top:45vh; left:2vw;  }
+  .pb-3  .pbi { background: radial-gradient(circle at 35% 35%, #ffa0a3, var(--b-red) 60%, #9c1c1f); }
+
+  .pb-4  { width:100px; height:100px; top:60vh; right:4vw; }
+  .pb-4  .pbi { background: radial-gradient(circle at 35% 35%, #fff59a, var(--b-yellow) 60%, #c8960a); }
+
+  .pb-5  { width:140px; height:140px; top:80vh; left:10vw; }
+  .pb-5  .pbi { background: radial-gradient(circle at 35% 35%, #b3f0c6, var(--b-green) 60%, #2e8b4a); }
+
+  .pb-6  { width:120px; height:120px; top:110vh; right:12vw; }
+  .pb-6  .pbi { background: radial-gradient(circle at 35% 35%, #ffb0d4, var(--b-pink) 60%, #b02060); }
+
+  .pb-7  { width:90px;  height:90px;  top:140vh; left:6vw;  }
+  .pb-7  .pbi { background: radial-gradient(circle at 35% 35%, #dbb8ff, var(--b-purple) 60%, #6a1fa8); }
+
+  .pb-8  { width:170px; height:170px; top:170vh; right:3vw;  }
+  .pb-8  .pbi { background: radial-gradient(circle at 35% 35%, #a8e0ff, var(--b-blue) 60%, #2d8ec7); }
+
+  .pb-9  { width:110px; height:110px; top:200vh; left:15vw; }
+  .pb-9  .pbi { background: radial-gradient(circle at 35% 35%, #ffc77a, var(--b-orange) 60%, #c05a10); }
+
+  .pb-10 { width:150px; height:150px; top:240vh; right:7vw;  }
+  .pb-10 .pbi { background: radial-gradient(circle at 35% 35%, #ffa0a3, var(--b-red) 60%, #9c1c1f); }
+
+  .pb-11 { width:80px;  height:80px;  top:270vh; left:20vw; }
+  .pb-11 .pbi { background: radial-gradient(circle at 35% 35%, #b3f0c6, var(--b-green) 60%, #2e8b4a); }
+
+  .pb-12 { width:140px; height:140px; top:300vh; right:15vw; }
+  .pb-12 .pbi { background: radial-gradient(circle at 35% 35%, #fff59a, var(--b-yellow) 60%, #c8960a); }
+
+  /* Small floating blobs */
+  .ps {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+    filter: blur(40px);
+    opacity: 0.18;
+    z-index: 1;
+  }
+  .ps-1 { width:300px; height:300px; top:5vh;   left:-50px;  background: var(--b-blue); }
+  .ps-2 { width:250px; height:250px; top:25vh;  right:-60px; background: var(--b-orange); }
+  .ps-3 { width:350px; height:350px; top:55vh;  left:20%;    background: var(--b-pink); }
+  .ps-4 { width:280px; height:280px; top:100vh; right:10%;   background: var(--b-purple); }
+  .ps-5 { width:320px; height:320px; top:160vh; left:-40px;  background: var(--b-green); }
+  .ps-6 { width:260px; height:260px; top:210vh; right:-30px; background: var(--b-yellow); }
+  .ps-7 { width:300px; height:300px; top:270vh; left:30%;    background: var(--b-red); }
+  .ps-8 { width:240px; height:240px; top:320vh; right:20%;   background: var(--b-blue); }
+
+  /* Hero colorful glow update */
+  #hero {
+    background:
+      radial-gradient(ellipse at 15% 85%, rgba(107,197,248,0.15) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 15%, rgba(255,146,64,0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(192,108,248,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at center, #2d1b3d 0%, #1a1a2e 70%) !important;
+  }
+
+  /* Colorful dividers */
+  .divider { background: linear-gradient(90deg,
+    var(--b-blue), var(--b-orange), var(--b-red),
+    var(--b-yellow), var(--b-green), var(--b-pink), var(--b-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 1 !important;
+  }
+
+  /* Highlight uses balloon colors cycling */
+  section:nth-of-type(1) .highlight { color: var(--b-blue); }
+  section:nth-of-type(2) .highlight { color: var(--b-orange); }
+  section:nth-of-type(3) .highlight { color: var(--b-red); }
+  section:nth-of-type(4) .highlight { color: var(--b-yellow); }
+  section:nth-of-type(5) .highlight { color: var(--b-green); }
+  section:nth-of-type(6) .highlight { color: var(--b-pink); }
+  section:nth-of-type(7) .highlight { color: var(--b-purple); }
+  section:nth-of-type(8) .highlight { color: var(--b-blue); }
+
+  /* Timeline dot colors */
+  section:nth-of-type(1) .tl-item::before { background: var(--b-blue); }
+  section:nth-of-type(2) .tl-item::before { background: var(--b-orange); }
+  section:nth-of-type(3) .tl-item::before { background: var(--b-red); }
+  section:nth-of-type(5) .tl-item::before { background: var(--b-green); }
+
 </style>
 </head>
 <body>
+
+<!-- PARALLAX BALLOON WORLD -->
+<div id="pworld" aria-hidden="true">
+  <!-- Soft glow blobs (slowest) -->
+  <div class="ps ps-1" data-pspeed="0.05"></div>
+  <div class="ps ps-2" data-pspeed="0.04"></div>
+  <div class="ps ps-3" data-pspeed="0.06"></div>
+  <div class="ps ps-4" data-pspeed="0.05"></div>
+  <div class="ps ps-5" data-pspeed="0.04"></div>
+  <div class="ps ps-6" data-pspeed="0.06"></div>
+  <div class="ps ps-7" data-pspeed="0.05"></div>
+  <div class="ps ps-8" data-pspeed="0.04"></div>
+  <!-- Balloons (medium speed, each different) -->
+  <div class="pb pb-1"  data-pspeed="0.18" data-pbob="4.5s"><div class="pbi"></div></div>
+  <div class="pb pb-2"  data-pspeed="0.26" data-pbob="5.2s"><div class="pbi"></div></div>
+  <div class="pb pb-3"  data-pspeed="0.14" data-pbob="6.1s"><div class="pbi"></div></div>
+  <div class="pb pb-4"  data-pspeed="0.30" data-pbob="4.8s"><div class="pbi"></div></div>
+  <div class="pb pb-5"  data-pspeed="0.20" data-pbob="5.5s"><div class="pbi"></div></div>
+  <div class="pb pb-6"  data-pspeed="0.22" data-pbob="6.3s"><div class="pbi"></div></div>
+  <div class="pb pb-7"  data-pspeed="0.35" data-pbob="4.2s"><div class="pbi"></div></div>
+  <div class="pb pb-8"  data-pspeed="0.16" data-pbob="5.8s"><div class="pbi"></div></div>
+  <div class="pb pb-9"  data-pspeed="0.28" data-pbob="4.6s"><div class="pbi"></div></div>
+  <div class="pb pb-10" data-pspeed="0.19" data-pbob="5.1s"><div class="pbi"></div></div>
+  <div class="pb pb-11" data-pspeed="0.32" data-pbob="3.9s"><div class="pbi"></div></div>
+  <div class="pb pb-12" data-pspeed="0.23" data-pbob="6.4s"><div class="pbi"></div></div>
+</div>
 
 <!-- HERO -->
 <div id="hero">
@@ -443,6 +712,7 @@
 
 <!-- MUSIC BUTTON -->
 <button id="music-btn" title="הפעל מוזיקה" onclick="toggleMusic()">♪</button>
+<button id="export-btn" title="שמור תמונות לתיקייה" onclick="dzSaveToFolder()" style="position:fixed;bottom:4rem;left:1rem;z-index:900;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:var(--gold);border-radius:50%;width:44px;height:44px;font-size:1rem;cursor:pointer;">💾</button>
 <audio id="bg-audio" loop preload="none">
   <source src="music/México en la piel - Luis Miguel (Video Oficial).mp3" type="audio/mpeg">
 </audio>
@@ -454,189 +724,100 @@
   <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; margin-bottom:2rem;">12.6.1990 — 4.11.2019. שלושים שנה של סיון לבנוני. הנה מה שהיה לפני.</p>
 
   <div class="timeline">
-    <div class="tl-item">
+    <div class="tl-item" data-zone="born">
       <div class="tl-date">12.6.1990</div>
       <div class="tl-title">נולדת</div>
       <div class="tl-text">
-        רמת אביב ג׳. משפחת לבנוני. בת שנייה מתוך שלושה — אחרי ליאור ולפני יהונתן.<br><br>
-        אבא אליצור קנה לך רולרבליידס ומשחקי כדור. <span class="highlight">לא כי החליט לגדל אותך כמו בן — אלא כי ליאור היה שלומיאל חנון ולא עשה שימוש בשום דבר.</span><br><br>
-        יצא שגדלת חזקה, עצמאית, ויודעת לדרבן. תודה ליאור.
+        רמת אביב ג׳. משפחת לבנוני. בת לאורלי ואליצור האגדיים.<br><br>
+        <span class="highlight">אבא אליצור החליט לגדל אותך כמו בן</span> — כי הבן הבכור יצא קצת שלומיאל וחנון, כך שלא נוראה לך ברירה אלא לסוע על רולרבליידס ולשחק בכדור. שום ברבי לא תהיה פה.<br><br>
+        יצא שגדלת חזקה, עצמאית, ויודעת להוביל. תודה ליאור.
       </div>
+      <div class="tl-dz" data-zone="born"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" data-zone="school">
       <div class="tl-date">בית ספר יסודי</div>
       <div class="tl-title">מגדלת גאון של חמיקה</div>
       <div class="tl-text">
         היה לך קשה בלימודים — הפרעות קשב וריכוז שאף אחד לא זיהה אז.<br>
         אנגלית? <span class="highlight">כשעברית כבר הייתה אתגר, פתאום יש שפה שנייה.</span><br><br>
-        אז פיתחת מערכת מושלמת: היית קמה, עולה על האוטובוס, יורדת בצפור — וחוזרת הביתה לבד, או הולכת לגן מאיר.<br><br>
-        פעם אחת הגיעה יועצת סוציאלית הביתה. הסתכלה סביב. <em>לא הבינה איך בית ככה מוציא ילדה ככה.</em><br><br>
-        ובכל זאת — כשרצו לארגן את מסע פולין בי״א, הלכו במיוחד לחפש אותך. כבר לא למדת שם. <span class="highlight">עדיין רצו שתהיי שם.</span>
+        אז פיתחת מערכת מושלמת: היית קמה, עולה על האוטובוס, יורדת בבית ספר — וחוזרת הביתה לבד, או הולכת לגן מאיר.<br><br>
+        פעם אחת הגיעה יועצת סוציאלית הביתה. הסתכלה סביב. <em>אמרה — אין סיכוי שבבית כזה תצא ילדה שלא לומדת.</em><br><br>
+        ובכל זאת — רצו שתהיי חלק בכל דבר. במסע פולין בי״א, כבר לא למדת שם. <span class="highlight">עדיין רצו שתהיי.</span>
       </div>
+      <div class="tl-dz" data-zone="school"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-date">אוניברסיטה</div>
-      <div class="tl-title">פסיכולוגיה, טקס סיום, ועדיין בלי תואר</div>
-      <div class="tl-text">
-        למדת פסיכולוגיה. הזכירו אותך בטקס הסיום.<br>
-        <span class="highlight">עדיין לא קיבלת תואר.</span><br><br>
-        אבל עם השנים — הפכת את הפרעות הקשב להתרון שמשאיר אבק לכולם. כי את לא לומדת אחרת, את <em>חושבת</em> אחרת.
-      </div>
-    </div>
-
-    <div class="tl-item">
+    <div class="tl-item" data-zone="army">
       <div class="tl-date">שירות צבאי — חיל הים, אילת</div>
       <div class="tl-title">קציינת סקייטבורד</div>
       <div class="tl-text">
-        חיל הים. אילת. בסיס אחד לבסיס שני.<br>
-        <span class="highlight">על סקייטבורד.</span><br><br>
-        אין מה להוסיף.
+        חיל הים. בק״שית באילת. מזהה כל דג שמסתובב בים האדום — עוברת מבסיס אחד לבסיס שני.<br>
+        <span class="highlight">על סקייטבורד.</span>
       </div>
+      <div class="tl-dz" data-zone="army"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-date">תקופה בלונדינית</div>
-      <div class="tl-title">עידן שאף אחד לא מאמין שהיה</div>
-      <div class="tl-text">
-        היית שמה לשיער סאנינג לבד בבית.<br>
-        <span class="highlight">מזל שאז נכנס לחיים יואל הספר המלך מבזל והציל את המצב.</span><br><br>
-        אף אחד לא מאמין שהיית בלונדינית. יואל יודע.
-      </div>
-    </div>
+    <div class="tl-subheader">אחרי הצבא</div>
 
-    <div class="tl-item">
-      <div class="tl-date">אחרי הצבא — המזרח</div>
-      <div class="tl-title">הסיפור שאבא שלך לא מספר לאנשים</div>
+    <div class="tl-item" data-zone="east">
+      <div class="tl-title">ראית עולם והעולם ראה אותך ונשאר בהלם</div>
       <div class="tl-text">
-        טיילת לבד. מדינות רבות. בלי אנגלית. לא תמיד ידעת בדיוק איפה את נמצאת — <span class="highlight">אבל תמיד שלחת לאבא שלך את הכתובת שבה את ישנה.</span><br><br>
+        טיילת לבד. מדינות רבות. בלי אנגלית. לא תמיד ידעת בדיוק איפה את נמצאת — <span class="highlight">אבל תמיד שלחת לאבא שלך את הנקודה שבה את ישנה.</span><br><br>
         בסוף הטיול הצטרפו שני בנים שהתנהגו אלייך לא יפה. אליצור, ממרחק אלפי קילומטרים, שלף אותך משם והחזיר אותך הביתה.<br><br>
         <em>כמובן שחזרת מסטולה לחלוטין מכדורי שינה לטיסות.</em><br><br>
-        ובכל זאת — <span class="highlight">את מבינה אנשים יותר טוב מדוברי אנגלית שוטפת.</span> לפעמים את מבינה מה אני אומר לפני שסיימתי את המשפט. ואנחנו מדברים באנגלית.
+        ובכל זאת — <span class="highlight">את מבינה אנשים יותר טוב מדוברי אנגלית שוטפת — כי אין עליך בפנטומימה.</span>
       </div>
+      <div class="tl-dz" data-zone="east"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-date">אחרי הצבא — תל אביב</div>
+    <div class="tl-item" data-zone="blonde">
+      <div class="tl-date">תקופה בלונדינית</div>
+      <div class="tl-title">סיון הבלונדינית</div>
+      <div class="tl-text">
+        <span class="highlight">מזל שאז נכנס לחיים יואל הספר המלך מבזל והציל את המצב — ובעיקר אותך.</span><br><br>
+        אף אחד לא מאמין שהיית בלונדינית. הנה הוכחה.
+      </div>
+      <div class="tl-dz" data-zone="blonde"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
+    </div>
+
+    <div class="tl-item" data-zone="uni">
+      <div class="tl-date">אוניברסיטה</div>
+      <div class="tl-title">פסיכולוגיה</div>
+      <div class="tl-text">
+        עם השנים — הפכת את הפרעות הקשב להתרון שמשאיר אבק לכולם. כי את לא לומדת אחרת, את <em>חושבת</em> אחרת.<br><br>
+        למדת פסיכולוגיה. אומנם לא קיבלת תואר — אבל <span class="highlight">כמובן שהזכירו אותך בטקס הסיום.</span><br><br>
+        ובין השיעורים? ארגנת אירוע התרמה לסטודנטים, וכמובן שנבחרת למועצת הסטודנטים. <span class="highlight">כי כשסיון נמצאת בחדר — היא לא יושבת בצד.</span><br><br>
+        חיה בבלו החברות בסלון והחיים מעניינים — תודה שלמדת את זה, כי את עושה לי סדר במוח.
+      </div>
+      <div class="tl-dz" data-zone="uni"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
+    </div>
+
+    <div class="tl-item" data-zone="tlv">
       <div class="tl-title">חיה את העיר כמו באגדות</div>
       <div class="tl-text">
-        בים. בבית קפה. בבר. יצאת למסיבות, ארגנת אירועי התרמה, היית פעילה בצופים — אנשים זוקפים לזכותך כבוד רב על זה.<br><br>
+        בים. בבית קפה. בבר. יצאת למסיבות, היית פעילה בצופים — אבדת רישיון ומזל כי עכשיו יש לנו לנד קרוזר 250 — <span class="highlight">אנשים זוקפים לזכותך כבוד רב בכל מקום.</span><br><br>
         הסתובבת הרבה גם עם החבורה של ליאור אחיך — ואז הוא עבר לאוסטרליה, חזר, ופתאום נוצר בינכם קשר מאוד מאוד קרוב ומיוחד. <span class="highlight">כמו שלפעמים צריך מרחק כדי להתקרב.</span><br><br>
-        תמיד מגנטת. תמיד נותנת יותר ממה שקיבלת. לפעמים זה פגע בך.<br>
-        אבל נשארת בדיוק מי שאת.
+        תמיד ממגנטת. תמיד נותנת יותר ממה שקיבלת. לפעמים זה פגע בך.<br>
+        אבל נשארת בדיוק מי שאת — עם הלב הכי גדול בעולם.
       </div>
+      <div class="tl-dz" data-zone="tlv"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" data-zone="before2019">
       <div class="tl-date">2019 — רגע לפני</div>
       <div class="tl-title">ה״אין לי אקסים״ + הבלבול של אהוד</div>
       <div class="tl-text">
         את תמיד אומרת שלא היו לך אקסים.<br>
         <span class="highlight">וכל יום אני שומע על עוד מישהו.</span><br><br>
         אגב — לפני שיצאנו, ראיתי תמונות שלך באינסטגרם עם בחור גדול וחזק ומחובק. פחדתי. חשבתי שזה אקס ושאת אוהבת אנשים חזקים ואין לי סיכוי.<br>
-        <em style="color:rgba(255,255,255,0.4);">זה היה יהונתן. אחיך. בן ה-17.</em><br><br>
-        כולם הגיעו בדיוק בזמן להכין אותך לרגע שבו תסתכלי עליי בחתונה ותראי הילה.
+        <em style="color:rgba(255,255,255,0.4);">זה היה יהונתן. אחיך. ילד בן ה-22.</em><br><br>
+        אבל כולם הגיעו בדיוק בזמן להכין אותך לרגע שתהיי מסוגלת כבר לראות את ההילה סביבי — בחתונה של דינו ונועה.
       </div>
+      <div class="tl-dz" data-zone="before2019"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
   </div>
 </section>
-
-<div class="divider">· · · · ·</div>
-
-<!-- PHOTO GALLERY: פרק א׳ -->
-<section class="fade-in" style="max-width:780px; padding-top:0;">
-  <div class="section-label">פרק א׳ — גלריה</div>
-  <h2>את, בתמונות</h2>
-
-  <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:1.2rem; letter-spacing:0.08em;">קטנה ↓</div>
-  <div class="photo-grid" id="grid-young"></div>
-
-  <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin:2rem 0 1.2rem; letter-spacing:0.08em;">גדולה יותר ↓</div>
-  <div class="photo-grid" id="grid-older"></div>
-</section>
-
-<style>
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 8px;
-  margin-bottom: 0.5rem;
-}
-.photo-grid img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.25s, opacity 0.25s;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-.photo-grid img:hover { transform: scale(1.03); opacity: 0.9; }
-</style>
-
-<script>
-(function() {
-  const young = [
-    "05707e33-cb57-4cce-a13b-11c921d9526d.JPG",
-    "0597fc1e-9de7-4dec-8e51-13ab1b8429af.JPG",
-    "137481b2-6dfc-456e-8d33-955d13d51ebe.JPG",
-    "1650db92-00d9-4ebd-ab14-8fa322342ac7.JPG",
-    "3762b20b-6fc8-4585-b4ad-2f2f63f48463.JPG",
-    "6f72e4a5-a0d5-41af-8532-8bf734f02f39.JPG",
-    "7333ed13-f671-4872-be2c-9618d9b05842.JPG",
-    "92d447cf-7365-4ba6-94d7-f2f0d8efee53.JPG",
-    "a5a414bc-64ec-4a62-9804-0309b4ca1cf7.JPG",
-    "c58eab9e-2f8d-4af4-a4d8-726553ed95e2.JPG",
-    "d580cee7-d25e-4b60-b574-3a9bed5962e1.JPG",
-    "e826471e-df6b-4313-b894-81f995eb6a06.JPG",
-    "ebc11d22-1391-44cb-bcce-f9a4a5b552c2.JPG",
-    "ee111164-def2-40d2-8209-ab6f8d2f2397.JPG",
-    "fba65982-3fdf-4d96-8a25-2d5d1d88fd71.JPG",
-    "fe104e08-b0b8-48b7-897d-9d2988dd8e05.JPG"
-  ];
-
-  const older = [
-    "16a94a8f-dd8f-4f71-b767-756e2567d6dc.JPG",
-    "1996be78-3ecf-42cc-857e-006a10bf8e07.JPG",
-    "1bab9f2e-c81a-4d28-b25a-6f5ac1fc49ad.JPG",
-    "29a2e32d-4b11-421e-9960-43c0dadae4ba.JPG",
-    "3914a56c-5174-48c7-b228-66fc23b8e901.JPG",
-    "3f7e426b-cbda-448d-87da-3fc05324969c.JPG",
-    "49d05f25-f678-4fae-8e5e-f6da26063602.JPG",
-    "69ac25f0-82cf-4091-a7df-932314495890.JPG",
-    "832a7939-12ba-425f-98ea-5b73771afd8e.JPG",
-    "aa04850c-55be-4ddf-a902-f8fca3b46aea.JPG",
-    "d07250e7-1727-4a86-9b8e-3d5bd5cf2ed3.JPG",
-    "d5e2ee66-55e0-4893-94ce-916ae61666f7.JPG",
-    "e2049ed8-0cf1-43dc-899f-f652e57fe6f9.JPG",
-    "ede2716f-70cb-4fdd-af64-ea7c5a18b762.JPG",
-    "fb76b388-0f66-4934-b92a-f8b060f28b23.JPG"
-  ];
-
-  function buildGrid(containerId, files, folder) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    files.forEach((f, i) => {
-      const img = document.createElement('img');
-      img.src = encodeURI('photos/פרק א׳/' + folder + '/' + f);
-      img.alt = '';
-      img.loading = 'lazy';
-      img.onclick = () => {
-        const allFiles = folder === '1' ? young : older;
-        lbImages = allFiles.map(fn => ({ src: encodeURI('photos/פרק א׳/' + folder + '/' + fn), caption: '' }));
-        openLightbox(i);
-      };
-      container.appendChild(img);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    buildGrid('grid-young', young, '1');
-    buildGrid('grid-older', older, '2');
-  });
-})();
-</script>
 
 <div class="divider">· · · · ·</div>
 
@@ -649,12 +830,24 @@
   <div class="timeline">
 
     <div class="tl-item">
+      <div class="tl-date">פורים, 2019</div>
+      <div class="tl-title">לפני שידעת מי אני</div>
+      <div class="tl-text">
+        נפגשנו לפני שהכרת אותי — בפורים.<br>
+        לא ידעת שם מי אני. לא ידעת שיהיה לזה המשך.<br><br>
+        <span class="highlight">אבל הצחקתי אותך מאוד — למרות שישבתי שם עם האויבת מספר אחת שלך.</span><br><br>
+        זה התחיל הרבה לפני שחשבת שזה התחיל.
+      </div>
+    </div>
+
+    <div class="tl-item">
       <div class="tl-date">חתונה של דינו, 2019</div>
       <div class="tl-title">בלתי מושגת</div>
       <div class="tl-text">
-        ראיתי אותך מרחוק ולא האמנתי שאת בכלל אופציה בשבילי. <span class="highlight">בלתי מושגת.</span><br><br>
+        אני הייתי השלום הראשון שלך — והתבאסתי. אבל בדיעבד, אולי נכנסתי לך לתת מודע ועשיתי לך מניפולציה מחשבתית.<br><br>
+        שלי לא האמנתי שיכול להיות מצב בעולם שאת ואני נהיה ביחד. <span class="highlight">בלתי מושגת.</span><br><br>
         הצעתי לך MDMA כל שתי דקות — רק כדי לדבר איתך. סירבת בנימוס, כי היית על אסיד.<br>
-        אבל משום מה ראית ממני הילה.
+        אבל משום מה ראית מסביבי הילה.
       </div>
     </div>
 
@@ -875,6 +1068,18 @@
 
   </div>
 
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION: Sweet Crush Game -->
+<section class="fade-in" style="text-align:center;">
+  <div class="section-label">בונוס מיוחד</div>
+  <h2>🍭 Sweet Crush 🍭</h2>
+  <p>מגיע לך לשחק קצת — גררי פרצופים כדי ליצור 3 ברצף!</p>
+  <div style="margin-top:28px; display:flex; justify-content:center;">
+    <iframe src="candy-crush.html" style="width:580px; height:700px; border:none; border-radius:24px; box-shadow:0 16px 48px rgba(0,0,0,0.4);" scrolling="no"></iframe>
+  </div>
 </section>
 
 <div class="divider">· · · · ·</div>
@@ -2057,11 +2262,156 @@ document.addEventListener('DOMContentLoaded', initMap);
 <div class="save-toast" id="save-toast">נשמר! ✓</div>
 
 <script>
-// ── FADE IN ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// ── PARALLAX ──
+(function() {
+  // Assign random phase per element for unique motion
+  const items = [];
+  document.querySelectorAll('[data-pspeed]').forEach((el, i) => {
+    const speed  = parseFloat(el.dataset.pspeed);
+    const phase  = i * 0.7 + Math.random() * 2; // unique sine phase
+    const hAmp   = 8 + Math.random() * 12;      // horizontal sway amplitude px
+    const vAmp   = 6 + Math.random() * 8;       // vertical drift amplitude px
+    items.push({ el, speed, phase, hAmp, vAmp });
+  });
+
+  // Bob animation — different duration per balloon
+  document.querySelectorAll('.pb[data-pbob]').forEach(el => {
+    const dur   = el.dataset.pbob;
+    const phase = (Math.random() * -6).toFixed(1) + 's';
+    el.querySelector('.pbi').style.animation =
+      `pb-bob-${Math.random() > 0.5 ? 'a' : 'b'} ${dur} ease-in-out ${phase} infinite`;
+  });
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        const t  = sy * 0.002; // slow time for sine wave
+
+        items.forEach(({ el, speed, phase, hAmp, vAmp }) => {
+          const dx = Math.sin(t + phase)       * hAmp;  // gentle horizontal sway
+          const dy = Math.cos(t * 0.7 + phase) * vAmp   // gentle vertical drift
+                   + sy * speed * -0.04;                 // very slow upward drift on scroll
+          el.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // Initial paint
+  onScroll();
+})();
+
+// Bob + entrance keyframes injected once
+(function() {
+  const s = document.createElement('style');
+  s.textContent = `
+    @keyframes pb-bob-a {
+      0%,100% { transform: translateY(0px) scale(1); }
+      50%      { transform: translateY(-22px) scale(1.02); }
+    }
+    @keyframes pb-bob-b {
+      0%,100% { transform: translateY(0px) scale(1); }
+      50%      { transform: translateY(-14px) scale(1.015); }
+    }
+    @keyframes pb-enter {
+      0%   { opacity: 0; transform: translateY(60px) scale(0.6); }
+      60%  { transform: translateY(-8px) scale(1.04); }
+      100% { opacity: 1; transform: translateY(0px) scale(1); }
+    }
+  `;
+  document.head.appendChild(s);
+
+  // Staggered entrance for all balloons
+  document.querySelectorAll('.pb').forEach((el, i) => {
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.style.transition = 'none';
+      el.style.animation = `pb-enter 0.9s cubic-bezier(0.34,1.56,0.64,1) forwards`;
+      setTimeout(() => {
+        el.style.opacity = '';
+        el.style.animation = '';
+      }, 900);
+    }, 300 + i * 120);
+  });
+})();
+
+// ── ANIMATION ENGINE ──
+(function() {
+
+  // 1. Split hero h1 into animated letters
+  const h1 = document.querySelector('#hero h1');
+  if (h1) {
+    const text = h1.textContent.trim();
+    h1.classList.add('split');
+    h1.innerHTML = text.split('').map((ch, i) =>
+      `<span class="letter" style="animation-delay:${0.3 + i * 0.14}s">${ch}</span>`
+    ).join('');
+  }
+
+  // 2. Animate element — transform-only, no opacity hiding
+  function animEl(el, anim, delay) {
+    el.style.animation = `${anim} 0.7s cubic-bezier(.22,.68,0,1.2) ${delay}s forwards`;
+  }
+
+  // 3. Build queue — elements stay visible, only get motion animation on scroll
+  const Q = [];
+  function enq(el, anim, delay) {
+    if (!el) return;
+    Q.push({ el, anim, delay, done: false });
+  }
+
+  document.querySelectorAll('section').forEach(section => {
+    enq(section.querySelector('.section-label'), 'anim-zoom-rotate', 0);
+    enq(section.querySelector('h2'),             'anim-drop',        0.08);
+    section.querySelectorAll(':scope > p').forEach((p, i)      => enq(p,    'anim-bounce-up',  0.1  + i * 0.08));
+    section.querySelectorAll('.tl-item').forEach((item, i)     => enq(item, 'anim-slide-right',0.05 + i * 0.12));
+    section.querySelectorAll('.card').forEach((card, i)        => enq(card, 'anim-flip-up',    0.1  + i * 0.12));
+    section.querySelectorAll('.quote-block').forEach((q, i)    => enq(q,    'anim-slide-left', 0.05 + i * 0.12));
+    section.querySelectorAll('.score-row').forEach((row, i)    => enq(row,  'anim-slide-right',0.05 + i * 0.08));
+  });
+  document.querySelectorAll('.reason-card').forEach((c, i) => enq(c, 'anim-pop', 0.02 + i * 0.04));
+  const fin = document.getElementById('final');
+  if (fin) {
+    enq(fin.querySelector('h2'), 'anim-drop', 0);
+    fin.querySelectorAll('p, .signature').forEach((p, i) => enq(p, 'anim-bounce-up', 0.12 + i * 0.1));
+  }
+  document.querySelectorAll('.divider').forEach(d => enq(d, 'anim-pop', 0));
+
+  // 4. Scroll-based trigger
+  function checkVisible() {
+    const vh = window.innerHeight;
+    Q.forEach(item => {
+      if (item.done) return;
+      const top = item.el.getBoundingClientRect().top;
+      // Trigger when element is within viewport + 200px below fold
+      if (top < vh + 200) {
+        item.done = true;
+        animEl(item.el, item.anim, item.delay);
+      }
+    });
+  }
+
+  let raf = false;
+  window.addEventListener('scroll', () => {
+    if (!raf) { raf = true; requestAnimationFrame(() => { checkVisible(); raf = false; }); }
+  }, { passive: true });
+
+  // Initial checks
+  setTimeout(checkVisible, 50);
+  setTimeout(checkVisible, 300);
+  window.addEventListener('load', checkVisible);
+
+  // Trigger any items that never got animated (e.g. JS errors mid-way)
+  setTimeout(() => {
+    Q.forEach(item => { if (!item.done) { item.done = true; animEl(item.el, item.anim, 0); } });
+  }, 2000);
+
+})();
 
 // ── MUSIC ──
 let playing = false;
@@ -2085,7 +2435,7 @@ function toggleMusic() {
 
 // ── CONFETTI ──
 function spawnConfetti() {
-  const colors = ['#c9a84c', '#e8748a', '#ffffff', '#ffd700'];
+  const colors = ['#6BC5F8','#FF9240','#E8474C','#FFD93D','#6BCB77','#FF6BA8','#C06CF8','#ffffff'];
   for (let i = 0; i < 30; i++) {
     setTimeout(() => {
       const el = document.createElement('div');
@@ -2227,6 +2577,636 @@ window.addEventListener('load', () => {
   loadSaved();
   setTimeout(spawnConfetti, 800);
 });
+
+// ── DRAG & DROP (IndexedDB) ──
+const DZ_DB = 'sivan-drops', DZ_ST = 'photos';
+let _db = null;
+function dzDB() {
+  return new Promise((ok, err) => {
+    if (_db) return ok(_db);
+    const r = indexedDB.open(DZ_DB, 1);
+    r.onupgradeneeded = e => e.target.result.createObjectStore(DZ_ST, { keyPath: 'id' });
+    r.onsuccess = e => { _db = e.target.result; ok(_db); };
+    r.onerror = err;
+  });
+}
+async function dzSave(id, blob) {
+  const db = await dzDB();
+  return new Promise((ok, err) => { const tx = db.transaction(DZ_ST,'readwrite'); tx.objectStore(DZ_ST).put({id,blob}); tx.oncomplete=ok; tx.onerror=err; });
+}
+async function dzAll() {
+  const db = await dzDB();
+  return new Promise((ok,err) => { const r = db.transaction(DZ_ST,'readonly').objectStore(DZ_ST).getAll(); r.onsuccess=()=>ok(r.result); r.onerror=err; });
+}
+async function dzDel(id) {
+  const db = await dzDB();
+  return new Promise((ok,err) => { const tx = db.transaction(DZ_ST,'readwrite'); tx.objectStore(DZ_ST).delete(id); tx.oncomplete=ok; tx.onerror=err; });
+}
+
+function dzRender(zoneEl, id, blob) {
+  const url = URL.createObjectURL(blob);
+  const photos = zoneEl.querySelector('.tl-dz-photos');
+  const hint = zoneEl.querySelector('.tl-dz-hint');
+  if (hint) hint.style.display = 'none';
+  const wrap = document.createElement('div'); wrap.className = 'tl-dz-wrap';
+  const img = document.createElement('img'); img.src = url;
+  img.onclick = () => { lbImages = [{src:url,caption:''}]; openLightbox(0); };
+  const btn = document.createElement('button'); btn.textContent = '×';
+  btn.onclick = async e => { e.stopPropagation(); await dzDel(id); wrap.remove(); if (!photos.children.length && hint) hint.style.display = ''; };
+  wrap.append(img, btn); photos.appendChild(wrap);
+}
+
+async function dzInit() {
+  document.querySelectorAll('.tl-dz').forEach(zone => {
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+    zone.addEventListener('drop', async e => {
+      e.preventDefault(); zone.classList.remove('over');
+      for (const f of Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'))) {
+        const id = zone.dataset.zone + '__' + Date.now() + '__' + f.name;
+        await dzSave(id, f); dzRender(zone, id, f);
+      }
+    });
+    zone.addEventListener('click', e => {
+      if (e.target.tagName === 'IMG' || e.target.tagName === 'BUTTON') return;
+      const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.multiple=true;
+      inp.onchange = async () => {
+        for (const f of Array.from(inp.files)) {
+          const id = zone.dataset.zone + '__' + Date.now() + '__' + f.name;
+          await dzSave(id, f); dzRender(zone, id, f);
+        }
+      };
+      inp.click();
+    });
+  });
+  // restore
+  try {
+    const all = await dzAll();
+    all.forEach(({id, blob}) => {
+      // support both old format (zone_ts_name) and new (zone__ts__name)
+      const zone = id.includes('__') ? id.split('__')[0] : id.split('_')[0];
+      const el = document.querySelector(`.tl-dz[data-zone="${zone}"]`);
+      if (el) dzRender(el, id, blob);
+    });
+  } catch(e) { console.warn('dz restore:', e); }
+}
+
+// ── שמירת תמונות לתיקייה + קיבוע בקוד ──
+async function dzSaveToFolder() {
+  const all = await dzAll();
+  if (!all.length) { alert('אין תמונות שמורות'); return; }
+
+  let rootDir;
+  try {
+    rootDir = await window.showDirectoryPicker({ mode: 'readwrite', startIn: 'desktop' });
+  } catch(e) { return; }
+
+  // בנה תיקיות
+  let photosDir, chapterDir, timelineDir;
+  try {
+    photosDir   = await rootDir.getDirectoryHandle('photos', { create: true });
+    chapterDir  = await photosDir.getDirectoryHandle('פרק א׳', { create: true });
+    timelineDir = await chapterDir.getDirectoryHandle('timeline', { create: true });
+  } catch(e) { alert('שגיאה ביצירת תיקיות: ' + e.message); return; }
+
+  const saved = []; // { zone, path }
+  for (const {id, blob} of all) {
+    const zone = id.includes('__') ? id.split('__')[0] : id.split('_')[0];
+    const rawName = id.includes('__') ? id.split('__')[2] : id.split('_').slice(2).join('_');
+    const filename = zone + '_' + rawName;
+    try {
+      const fh = await timelineDir.getFileHandle(filename, { create: true });
+      const w  = await fh.createWritable();
+      await w.write(blob);
+      await w.close();
+      saved.push({ zone, path: 'photos/פרק א׳/timeline/' + filename });
+    } catch(e) { console.warn('skip', filename, e); }
+  }
+
+  // שלח למנהל לעדכון הקוד
+  const map = {};
+  saved.forEach(({zone, path}) => { if (!map[zone]) map[zone] = []; map[zone].push(path); });
+  const summary = Object.entries(map)
+    .map(([z,ps]) => z + ': ' + ps.length + ' תמונות')
+    .join('\n');
+  alert('נשמרו ' + saved.length + ' תמונות ✓\n\n' + summary + '\n\nעכשיו תעתיק את הטקסט הזה ל-Claude כדי שיקבע את הנתיבים בקוד.');
+
+  // הורד JSON למפה מלאה
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(map, null, 2)], {type:'application/json'}));
+  a.download = 'photo-map.json'; a.click();
+}
+
+document.addEventListener('DOMContentLoaded', dzInit);
+
+// ── תמונות סטטיות לפרק א׳ ──
+const STATIC_ZONE_PHOTOS = {
+  born: [
+    'photos/נולדת/05707e33-cb57-4cce-a13b-11c921d9526d.JPG',
+    'photos/נולדת/0597fc1e-9de7-4dec-8e51-13ab1b8429af.JPG',
+    'photos/נולדת/137481b2-6dfc-456e-8d33-955d13d51ebe.JPG',
+    'photos/נולדת/3762b20b-6fc8-4585-b4ad-2f2f63f48463.JPG',
+    'photos/נולדת/6f72e4a5-a0d5-41af-8532-8bf734f02f39.JPG',
+    'photos/נולדת/92d447cf-7365-4ba6-94d7-f2f0d8efee53.JPG',
+    'photos/נולדת/c58eab9e-2f8d-4af4-a4d8-726553ed95e2.JPG',
+    'photos/נולדת/d580cee7-d25e-4b60-b574-3a9bed5952e1.JPG',
+    'photos/נולדת/e826471e-df6b-4313-b894-81f995eb6a06.JPG',
+    'photos/נולדת/ebc11d22-1391-44cb-bcce-f9a4a5b552c2.JPG',
+    'photos/נולדת/fba65982-3fdf-4d96-8a25-2d5d1d88fd71.JPG'
+  ],
+  school: [
+    'photos/יסודי/1650db92-00d9-4ebd-ab14-8fa322342ac7.JPG',
+    'photos/יסודי/7333ed13-f671-4872-be2c-9618d9b05842.JPG',
+    'photos/יסודי/a5a414bc-64ec-4a62-9804-0309b4ca1cf7.JPG',
+    'photos/יסודי/ee111164-def2-40d2-8209-ab6f8d2f2397.JPG',
+    'photos/יסודי/fe104e08-b0b8-48b7-897d-9d2988dd8e05.JPG'
+  ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  Object.entries(STATIC_ZONE_PHOTOS).forEach(([zone, paths]) => {
+    const dz = document.querySelector(`.tl-dz[data-zone="${zone}"]`);
+    if (!dz) return;
+    const photos = dz.querySelector('.tl-dz-photos');
+    const hint = dz.querySelector('.tl-dz-hint');
+    if (hint) hint.style.display = 'none';
+    paths.forEach((src, i) => {
+      const wrap = document.createElement('div'); wrap.className = 'tl-dz-wrap';
+      const img = document.createElement('img');
+      img.src = encodeURI(src); img.loading = 'lazy';
+      img.onclick = () => {
+        lbImages = paths.map(p => ({ src: encodeURI(p), caption: '' }));
+        openLightbox(i);
+      };
+      wrap.appendChild(img);
+      photos.appendChild(wrap);
+    });
+  });
+});
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     EXTRA ANIMATIONS LAYER
+═══════════════════════════════════════════════════ -->
+<style>
+  /* Scroll progress bar */
+  #scroll-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg,
+      var(--b-blue), var(--b-purple), var(--b-pink),
+      var(--b-red), var(--b-orange), var(--b-yellow), var(--b-green));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(255,180,0,0.6);
+  }
+
+  /* Cursor sparkle */
+  .spark {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9998;
+    animation: spark-out 0.6s ease-out forwards;
+  }
+  @keyframes spark-out {
+    0%   { opacity: 1; transform: scale(1) translate(0,0); }
+    100% { opacity: 0; transform: scale(0) translate(var(--tx), var(--ty)); }
+  }
+
+  /* Card 3D tilt */
+  .card {
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    will-change: transform;
+  }
+  .card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  /* Reason card hover glow */
+  .reason-card {
+    transition: all 0.25s cubic-bezier(.22,.68,0,1.2);
+  }
+  .reason-card:hover {
+    transform: translateY(-6px) scale(1.08) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  }
+
+  /* Timeline item hover */
+  .tl-item {
+    transition: transform 0.2s ease;
+  }
+  .tl-item:hover {
+    transform: translateX(-4px);
+  }
+
+  /* Score row hover */
+  .score-row {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+  }
+  .score-row:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateX(-4px) scale(1.01);
+  }
+
+  /* Final section confetti overlay */
+  #final-confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  /* ── Floating emoji bubbles ── */
+  .emoji-bubble {
+    position: fixed;
+    pointer-events: none;
+    z-index: 490;
+    font-size: 1.4rem;
+    animation: bubble-rise var(--dur, 6s) ease-in forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  @keyframes bubble-rise {
+    0%   { opacity: 0;   transform: translateY(0)    rotate(0deg)   scale(0.6); }
+    10%  { opacity: 0.9; transform: translateY(-5vh)  rotate(8deg)   scale(1); }
+    90%  { opacity: 0.7; transform: translateY(-85vh) rotate(-10deg) scale(1.1); }
+    100% { opacity: 0;   transform: translateY(-95vh) rotate(5deg)   scale(0.8); }
+  }
+
+  /* ── Click ripple ── */
+  .click-ripple {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9996;
+    transform: scale(0);
+    animation: ripple-out 0.6s ease-out forwards;
+  }
+  @keyframes ripple-out {
+    0%   { transform: scale(0);   opacity: 0.7; }
+    100% { transform: scale(4);   opacity: 0; }
+  }
+
+  /* ── Section nav dots ── */
+  #section-nav {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 8000;
+    pointer-events: auto;
+  }
+  .snav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.22,.68,0,1.2);
+    position: relative;
+  }
+  .snav-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(26,26,46,0.9);
+    color: #fff;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    padding: 3px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    font-family: 'Heebo', sans-serif;
+  }
+  .snav-dot:hover::after { opacity: 1; }
+  .snav-dot.active {
+    background: var(--active-color, var(--gold));
+    transform: scale(1.5);
+    box-shadow: 0 0 8px var(--active-color, var(--gold));
+  }
+
+  /* ── Section background pulse ── */
+  @keyframes section-glow {
+    0%   { box-shadow: inset 0 0 0px 0px transparent; }
+    50%  { box-shadow: inset 0 0 80px 20px var(--glow-color, transparent); }
+    100% { box-shadow: inset 0 0 0px 0px transparent; }
+  }
+  .section-glowing {
+    animation: section-glow 1.2s ease forwards;
+  }
+
+  /* ── Magnetic button ── */
+  #music-btn, #export-btn, #edit-toggle {
+    transition: transform 0.15s cubic-bezier(.22,.68,0,1.2) !important;
+  }
+</style>
+
+<!-- Scroll progress bar -->
+<div id="scroll-bar"></div>
+<!-- Section nav dots -->
+<nav id="section-nav" aria-label="ניווט מהיר"></nav>
+
+<script>
+// ── SCROLL PROGRESS BAR ──
+(function() {
+  const bar = document.getElementById('scroll-bar');
+  function updateBar() {
+    const max = document.body.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateBar, { passive: true });
+  updateBar();
+})();
+
+// ── CURSOR SPARKLE TRAIL ──
+(function() {
+  const colors = ['#6BC5F8','#FF9240','#E8474C','#FFD93D','#6BCB77','#FF6BA8','#C06CF8','#fff'];
+  let lastSpark = 0;
+
+  document.addEventListener('mousemove', e => {
+    const now = Date.now();
+    if (now - lastSpark < 40) return; // throttle
+    lastSpark = now;
+
+    const spark = document.createElement('div');
+    spark.className = 'spark';
+    const size = 5 + Math.random() * 8;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const angle = Math.random() * 360;
+    const dist  = 20 + Math.random() * 30;
+    const tx = Math.cos(angle * Math.PI / 180) * dist;
+    const ty = Math.sin(angle * Math.PI / 180) * dist - 20;
+
+    Object.assign(spark.style, {
+      width:  size + 'px',
+      height: size + 'px',
+      left:   (e.clientX - size / 2) + 'px',
+      top:    (e.clientY - size / 2) + 'px',
+      background: color,
+      '--tx':  tx + 'px',
+      '--ty':  ty + 'px',
+      boxShadow: `0 0 6px 2px ${color}55`
+    });
+
+    document.body.appendChild(spark);
+    setTimeout(() => spark.remove(), 600);
+  });
+})();
+
+// ── CARD 3D TILT ──
+(function() {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `perspective(600px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+// ── SCOREBOARD COUNTER ANIMATION ──
+(function() {
+  function animateNumber(el, target, duration) {
+    const start = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // Find score numbers and animate when scoreboard enters view
+  let scoresDone = false;
+  window.addEventListener('scroll', () => {
+    if (scoresDone) return;
+    const board = document.querySelector('.scoreboard');
+    if (!board) return;
+    const rect = board.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      scoresDone = true;
+      document.querySelectorAll('.score-me, .score-her, .score-win').forEach(el => {
+        const match = el.textContent.match(/\d+/);
+        if (!match) return;
+        const num = parseInt(match[0]);
+        const prefix = el.textContent.replace(/\d+/, '');
+        const span = document.createElement('span');
+        span.textContent = '0';
+        // Keep rest of content
+        el.childNodes.forEach(n => {
+          if (n.nodeType === 3 && /\d/.test(n.textContent)) {
+            el.replaceChild(span, n);
+          }
+        });
+        if (el.contains(span)) animateNumber(span, num, 1200);
+      });
+    }
+  }, { passive: true });
+})();
+
+// ── FINAL SECTION CONFETTI BURST ──
+(function() {
+  let finalDone = false;
+  const colors = ['#6BC5F8','#FF9240','#E8474C','#FFD93D','#6BCB77','#FF6BA8','#C06CF8','#fff'];
+
+  function burstConfetti(count) {
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        const size = 6 + Math.random() * 8;
+        const isCircle = Math.random() > 0.4;
+        Object.assign(el.style, {
+          position: 'fixed',
+          width:  size + 'px',
+          height: size + 'px',
+          borderRadius: isCircle ? '50%' : '2px',
+          background: colors[Math.floor(Math.random() * colors.length)],
+          left: (20 + Math.random() * 60) + 'vw',
+          top: '-10px',
+          zIndex: '9997',
+          pointerEvents: 'none',
+          animation: `fall ${2 + Math.random() * 3}s linear forwards`
+        });
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 5000);
+      }, i * 60);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (finalDone) return;
+    const fin = document.getElementById('final');
+    if (!fin) return;
+    const rect = fin.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8) {
+      finalDone = true;
+      burstConfetti(60);
+    }
+  }, { passive: true });
+})();
+
+// ── SECTION TITLE RAINBOW LETTERS ──
+(function() {
+  let h2Done = new Set();
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('section h2').forEach(h2 => {
+      if (h2Done.has(h2)) return;
+      const rect = h2.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40 && rect.top > -100) {
+        h2Done.add(h2);
+        h2.style.animation = 'anim-drop 0.75s cubic-bezier(.22,.68,0,1.2) 0.08s both';
+        h2.style.opacity = '1';
+      }
+    });
+  }, { passive: true });
+})();
+
+// ── FLOATING EMOJI BUBBLES ──
+(function() {
+  const emojis = ['💛','✨','🎈','💕','⭐','🌸','💫','🎂','🥳','💖','🌟','🎀'];
+  const colors = ['var(--b-blue)','var(--b-orange)','var(--b-pink)','var(--b-yellow)','var(--b-purple)','var(--b-green)'];
+
+  function spawnBubble() {
+    const el = document.createElement('div');
+    el.className = 'emoji-bubble';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const dur = 5 + Math.random() * 5;
+    Object.assign(el.style, {
+      left: (5 + Math.random() * 90) + 'vw',
+      bottom: '-50px',
+      '--dur': dur + 's',
+      fontSize: (1 + Math.random() * 1.2) + 'rem',
+    });
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000 + 200);
+  }
+
+  // Spawn a bubble every 2.5s
+  setInterval(spawnBubble, 2500);
+  // Burst of bubbles on first load
+  setTimeout(() => { for (let i = 0; i < 6; i++) setTimeout(spawnBubble, i * 400); }, 800);
+})();
+
+// ── CLICK RIPPLE EFFECT ──
+(function() {
+  const colors = ['#6BC5F8','#FF9240','#E8474C','#FFD93D','#6BCB77','#FF6BA8','#C06CF8'];
+  document.addEventListener('click', e => {
+    // Skip clicks on interactive elements
+    if (e.target.closest('button, a, input, select, label, [contenteditable]')) return;
+    const el = document.createElement('div');
+    el.className = 'click-ripple';
+    const size = 60;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    Object.assign(el.style, {
+      width:  size + 'px',
+      height: size + 'px',
+      left:   (e.clientX - size / 2) + 'px',
+      top:    (e.clientY - size / 2) + 'px',
+      border: `3px solid ${color}`,
+      boxShadow: `0 0 12px ${color}88`
+    });
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 620);
+  });
+})();
+
+// ── SECTION NAVIGATION DOTS ──
+(function() {
+  const nav = document.getElementById('section-nav');
+  if (!nav) return;
+
+  const dotColors = ['var(--b-blue)','var(--b-orange)','var(--b-red)',
+                     'var(--b-yellow)','var(--b-green)','var(--b-pink)',
+                     'var(--b-purple)','var(--b-blue)','var(--gold)'];
+
+  const sections = Array.from(document.querySelectorAll('section, #final'));
+  const dots = sections.map((sec, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'snav-dot';
+    dot.style.setProperty('--active-color', dotColors[i % dotColors.length]);
+    // Tooltip label from h2 or section-label
+    const label = sec.querySelector('h2, .section-label');
+    dot.setAttribute('data-label', label ? label.textContent.trim().slice(0, 10) : (i + 1));
+    dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    nav.appendChild(dot);
+    return { dot, sec };
+  });
+
+  function updateDots() {
+    const mid = window.innerHeight / 2;
+    let active = 0;
+    dots.forEach(({ sec }, i) => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= mid) active = i;
+    });
+    dots.forEach(({ dot }, i) => dot.classList.toggle('active', i === active));
+  }
+
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
+})();
+
+// ── MAGNETIC BUTTONS ──
+(function() {
+  document.querySelectorAll('#music-btn, #export-btn, #edit-toggle').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * 0.35;
+      const dy = (e.clientY - cy) * 0.35;
+      btn.style.transform = `translate(${dx}px, ${dy}px) scale(1.12)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+})();
+
+// ── SECTION BACKGROUND GLOW ON ENTER ──
+(function() {
+  const sectionColors = [
+    'rgba(107,197,248,0.06)', 'rgba(255,146,64,0.06)', 'rgba(232,71,76,0.06)',
+    'rgba(255,217,61,0.06)',  'rgba(107,203,119,0.06)','rgba(255,107,168,0.06)',
+    'rgba(192,108,248,0.06)', 'rgba(107,197,248,0.06)'
+  ];
+  const done = new Set();
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('section').forEach((sec, i) => {
+      if (done.has(sec)) return;
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.6 && rect.top > -rect.height * 0.3) {
+        done.add(sec);
+        sec.style.setProperty('--glow-color', sectionColors[i % sectionColors.length]);
+        sec.classList.add('section-glowing');
+        setTimeout(() => sec.classList.remove('section-glowing'), 1400);
+      }
+    });
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>

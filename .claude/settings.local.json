@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "mcp__visualize__show_widget",
+      "Bash(open \"/Users/Ehood/Desktop/Sivan Birthday/index.html\")",
+      "Bash(grep -iE '\\\\.\\(jpg|jpeg|png|heic\\)$')",
+      "Bash(grep -iE '\\\\.\\(jpg|jpeg|png|heic|JPG|HEIC\\)$')"
+    ]
+  }
+}

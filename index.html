@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סיון — 36 🎂</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+
+  :root {
+    --gold: #c9a84c;
+    --pink: #e8748a;
+    --soft: #fff5f7;
+    --dark: #1a1a2e;
+    --cream: #fdf6ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--dark);
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(ellipse at center, #2d1b3d 0%, #1a1a2e 70%);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .halo {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.35) 0%, transparent 70%);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -60%);
+    animation: pulse 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulse {
+    0%,100% { transform: translate(-50%,-60%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%,-60%) scale(1.3); opacity: 1; }
+  }
+
+  .stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, white, transparent),
+      radial-gradient(1px 1px at 80% 15%, white, transparent),
+      radial-gradient(1px 1px at 50% 70%, white, transparent),
+      radial-gradient(1px 1px at 10% 60%, white, transparent),
+      radial-gradient(1px 1px at 90% 80%, white, transparent),
+      radial-gradient(1px 1px at 35% 85%, white, transparent),
+      radial-gradient(1px 1px at 65% 45%, white, transparent),
+      radial-gradient(2px 2px at 15% 20%, rgba(201,168,76,0.8), transparent),
+      radial-gradient(2px 2px at 75% 55%, rgba(232,116,138,0.8), transparent);
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle { from { opacity: 0.6; } to { opacity: 1; } }
+
+  #hero h1 {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), #fff, var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  #hero .subtitle {
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    color: rgba(255,255,255,0.75);
+    margin-top: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative; z-index: 1;
+  }
+
+  #hero .age-badge {
+    margin-top: 1.5rem;
+    display: inline-block;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    padding: 0.4em 1.4em;
+    position: relative; z-index: 1;
+    animation: fadeUp 1s 0.5s both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── MUSIC BUTTON ─── */
+  #music-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 999;
+    background: rgba(201,168,76,0.15);
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    width: 52px; height: 52px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s;
+  }
+  #music-btn:hover { background: rgba(201,168,76,0.3); transform: scale(1.1); }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .gold { color: var(--gold); font-weight: 700; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    text-align: center;
+    padding: 1rem 0 2rem;
+    opacity: 0.3;
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card.pink-border { border-color: rgba(232,116,138,0.4); }
+  .card.gold-border { border-color: rgba(201,168,76,0.4); }
+
+  /* ─── SCOREBOARD ─── */
+  .scoreboard {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .scoreboard-title {
+    background: rgba(201,168,76,0.15);
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .score-row:last-child { border-bottom: none; }
+
+  .score-game { font-size: 0.95rem; color: rgba(255,255,255,0.7); flex: 1; }
+
+  .score-numbers {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .score-me { color: rgba(255,255,255,0.5); }
+  .score-vs { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+  .score-her { color: var(--pink); }
+  .score-win { color: var(--gold); }
+
+  .winner-badge {
+    font-size: 0.7rem;
+    background: rgba(232,116,138,0.2);
+    color: var(--pink);
+    border-radius: 20px;
+    padding: 0.15em 0.6em;
+    margin-right: 0.5rem;
+  }
+
+  /* ─── QUOTES ─── */
+  .quote-block {
+    border-right: 3px solid var(--pink);
+    padding-right: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .quote-block p {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ─── 36 GRID ─── */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .reason-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .reason-card:hover {
+    background: rgba(232,116,138,0.1);
+    border-color: rgba(232,116,138,0.3);
+    transform: translateY(-3px);
+  }
+
+  .reason-card .num {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── FINAL ─── */
+  #final {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(ellipse at center, #2d1b3d 0%, #1a1a2e 70%);
+    padding: 3rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #final h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    background: linear-gradient(135deg, var(--gold), #fff, var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+  }
+
+  #final p {
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+  }
+
+  .signature {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ─── CONFETTI particles ─── */
+  .confetti-piece {
+    position: fixed;
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ─── FADE IN on scroll ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline {
+    position: relative;
+    padding-right: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--pink), transparent);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    right: -2.4rem;
+    top: 0.3rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--dark);
+  }
+  .tl-date {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+  .tl-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .tl-text {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+
+  /* ─── EMOJI BIG ─── */
+  .big-emoji {
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  /* ─── PHOTO PLACEHOLDER ─── */
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px dashed rgba(255,255,255,0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.85rem;
+    margin: 1rem 0;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="stars"></div>
+  <div class="halo"></div>
+  <h1>סיון</h1>
+  <p class="subtitle">יום הולדת שמח, אהובתי</p>
+  <div class="age-badge">36 שנים של אושר עולמי ✨</div>
+  <div class="scroll-hint">גלול למטה ↓</div>
+</div>
+
+<!-- MUSIC BUTTON -->
+<button id="music-btn" title="הפעל מוזיקה" onclick="toggleMusic()">♪</button>
+<audio id="bg-audio" loop preload="none">
+  <source src="music/México en la piel - Luis Miguel (Video Oficial).mp3" type="audio/mpeg">
+</audio>
+
+<!-- SECTION 0: לפני שהכרת אותי -->
+<section class="fade-in">
+  <div class="section-label">פרק א׳</div>
+  <h2>לפני שהגעתי לתמונה</h2>
+  <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; margin-bottom:2rem;">12.6.1990 — 4.11.2019. שלושים שנה של סיון לבנוני. הנה מה שהיה לפני.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">12.6.1990</div>
+      <div class="tl-title">נולדת</div>
+      <div class="tl-text">
+        רמת אביב ג׳. משפחת לבנוני. בת שנייה מתוך שלושה — אחרי ליאור ולפני יהונתן.<br><br>
+        אבא אליצור קנה לך רולרבליידס ומשחקי כדור. <span class="highlight">לא כי החליט לגדל אותך כמו בן — אלא כי ליאור היה שלומיאל חנון ולא עשה שימוש בשום דבר.</span><br><br>
+        יצא שגדלת חזקה, עצמאית, ויודעת לדרבן. תודה ליאור.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">בית ספר יסודי</div>
+      <div class="tl-title">מגדלת גאון של חמיקה</div>
+      <div class="tl-text">
+        היה לך קשה בלימודים — הפרעות קשב וריכוז שאף אחד לא זיהה אז.<br>
+        אנגלית? <span class="highlight">כשעברית כבר הייתה אתגר, פתאום יש שפה שנייה.</span><br><br>
+        אז פיתחת מערכת מושלמת: היית קמה, עולה על האוטובוס, יורדת בצפור — וחוזרת הביתה לבד, או הולכת לגן מאיר.<br><br>
+        פעם אחת הגיעה יועצת סוציאלית הביתה. הסתכלה סביב. <em>לא הבינה איך בית ככה מוציא ילדה ככה.</em><br><br>
+        ובכל זאת — כשרצו לארגן את מסע פולין בי״א, הלכו במיוחד לחפש אותך. כבר לא למדת שם. <span class="highlight">עדיין רצו שתהיי שם.</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">אוניברסיטה</div>
+      <div class="tl-title">פסיכולוגיה, טקס סיום, ועדיין בלי תואר</div>
+      <div class="tl-text">
+        למדת פסיכולוגיה. הזכירו אותך בטקס הסיום.<br>
+        <span class="highlight">עדיין לא קיבלת תואר.</span><br><br>
+        אבל עם השנים — הפכת את הפרעות הקשב להתרון שמשאיר אבק לכולם. כי את לא לומדת אחרת, את <em>חושבת</em> אחרת.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">שירות צבאי — חיל הים, אילת</div>
+      <div class="tl-title">קציינת סקייטבורד</div>
+      <div class="tl-text">
+        חיל הים. אילת. בסיס אחד לבסיס שני.<br>
+        <span class="highlight">על סקייטבורד.</span><br><br>
+        אין מה להוסיף.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">תקופה בלונדינית</div>
+      <div class="tl-title">עידן שאף אחד לא מאמין שהיה</div>
+      <div class="tl-text">
+        היית שמה לשיער סאנינג לבד בבית.<br>
+        <span class="highlight">מזל שאז נכנס לחיים יואל הספר המלך מבזל והציל את המצב.</span><br><br>
+        אף אחד לא מאמין שהיית בלונדינית. יואל יודע.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">אחרי הצבא — המזרח</div>
+      <div class="tl-title">הסיפור שאבא שלך לא מספר לאנשים</div>
+      <div class="tl-text">
+        טיילת לבד. מדינות רבות. בלי אנגלית. לא תמיד ידעת בדיוק איפה את נמצאת — <span class="highlight">אבל תמיד שלחת לאבא שלך את הכתובת שבה את ישנה.</span><br><br>
+        בסוף הטיול הצטרפו שני בנים שהתנהגו אלייך לא יפה. אליצור, ממרחק אלפי קילומטרים, שלף אותך משם והחזיר אותך הביתה.<br><br>
+        <em>כמובן שחזרת מסטולה לחלוטין מכדורי שינה לטיסות.</em><br><br>
+        ובכל זאת — <span class="highlight">את מבינה אנשים יותר טוב מדוברי אנגלית שוטפת.</span> לפעמים את מבינה מה אני אומר לפני שסיימתי את המשפט. ואנחנו מדברים באנגלית.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">אחרי הצבא — תל אביב</div>
+      <div class="tl-title">חיה את העיר כמו באגדות</div>
+      <div class="tl-text">
+        בים. בבית קפה. בבר. יצאת למסיבות, ארגנת אירועי התרמה, היית פעילה בצופים — אנשים זוקפים לזכותך כבוד רב על זה.<br><br>
+        הסתובבת הרבה גם עם החבורה של ליאור אחיך — ואז הוא עבר לאוסטרליה, חזר, ופתאום נוצר בינכם קשר מאוד מאוד קרוב ומיוחד. <span class="highlight">כמו שלפעמים צריך מרחק כדי להתקרב.</span><br><br>
+        תמיד מגנטת. תמיד נותנת יותר ממה שקיבלת. לפעמים זה פגע בך.<br>
+        אבל נשארת בדיוק מי שאת.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2019 — רגע לפני</div>
+      <div class="tl-title">ה״אין לי אקסים״ + הבלבול של אהוד</div>
+      <div class="tl-text">
+        את תמיד אומרת שלא היו לך אקסים.<br>
+        <span class="highlight">וכל יום אני שומע על עוד מישהו.</span><br><br>
+        אגב — לפני שיצאנו, ראיתי תמונות שלך באינסטגרם עם בחור גדול וחזק ומחובק. פחדתי. חשבתי שזה אקס ושאת אוהבת אנשים חזקים ואין לי סיכוי.<br>
+        <em style="color:rgba(255,255,255,0.4);">זה היה יהונתן. אחיך. בן ה-17.</em><br><br>
+        כולם הגיעו בדיוק בזמן להכין אותך לרגע שבו תסתכלי עליי בחתונה ותראי הילה.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- PHOTO GALLERY: פרק א׳ -->
+<section class="fade-in" style="max-width:780px; padding-top:0;">
+  <div class="section-label">פרק א׳ — גלריה</div>
+  <h2>את, בתמונות</h2>
+
+  <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:1.2rem; letter-spacing:0.08em;">קטנה ↓</div>
+  <div class="photo-grid" id="grid-young"></div>
+
+  <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin:2rem 0 1.2rem; letter-spacing:0.08em;">גדולה יותר ↓</div>
+  <div class="photo-grid" id="grid-older"></div>
+</section>
+
+<style>
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s, opacity 0.25s;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.photo-grid img:hover { transform: scale(1.03); opacity: 0.9; }
+</style>
+
+<script>
+(function() {
+  const young = [
+    "05707e33-cb57-4cce-a13b-11c921d9526d.JPG",
+    "0597fc1e-9de7-4dec-8e51-13ab1b8429af.JPG",
+    "137481b2-6dfc-456e-8d33-955d13d51ebe.JPG",
+    "1650db92-00d9-4ebd-ab14-8fa322342ac7.JPG",
+    "3762b20b-6fc8-4585-b4ad-2f2f63f48463.JPG",
+    "6f72e4a5-a0d5-41af-8532-8bf734f02f39.JPG",
+    "7333ed13-f671-4872-be2c-9618d9b05842.JPG",
+    "92d447cf-7365-4ba6-94d7-f2f0d8efee53.JPG",
+    "a5a414bc-64ec-4a62-9804-0309b4ca1cf7.JPG",
+    "c58eab9e-2f8d-4af4-a4d8-726553ed95e2.JPG",
+    "d580cee7-d25e-4b60-b574-3a9bed5962e1.JPG",
+    "e826471e-df6b-4313-b894-81f995eb6a06.JPG",
+    "ebc11d22-1391-44cb-bcce-f9a4a5b552c2.JPG",
+    "ee111164-def2-40d2-8209-ab6f8d2f2397.JPG",
+    "fba65982-3fdf-4d96-8a25-2d5d1d88fd71.JPG",
+    "fe104e08-b0b8-48b7-897d-9d2988dd8e05.JPG"
+  ];
+
+  const older = [
+    "16a94a8f-dd8f-4f71-b767-756e2567d6dc.JPG",
+    "1996be78-3ecf-42cc-857e-006a10bf8e07.JPG",
+    "1bab9f2e-c81a-4d28-b25a-6f5ac1fc49ad.JPG",
+    "29a2e32d-4b11-421e-9960-43c0dadae4ba.JPG",
+    "3914a56c-5174-48c7-b228-66fc23b8e901.JPG",
+    "3f7e426b-cbda-448d-87da-3fc05324969c.JPG",
+    "49d05f25-f678-4fae-8e5e-f6da26063602.JPG",
+    "69ac25f0-82cf-4091-a7df-932314495890.JPG",
+    "832a7939-12ba-425f-98ea-5b73771afd8e.JPG",
+    "aa04850c-55be-4ddf-a902-f8fca3b46aea.JPG",
+    "d07250e7-1727-4a86-9b8e-3d5bd5cf2ed3.JPG",
+    "d5e2ee66-55e0-4893-94ce-916ae61666f7.JPG",
+    "e2049ed8-0cf1-43dc-899f-f652e57fe6f9.JPG",
+    "ede2716f-70cb-4fdd-af64-ea7c5a18b762.JPG",
+    "fb76b388-0f66-4934-b92a-f8b060f28b23.JPG"
+  ];
+
+  function buildGrid(containerId, files, folder) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    files.forEach((f, i) => {
+      const img = document.createElement('img');
+      img.src = encodeURI('photos/פרק א׳/' + folder + '/' + f);
+      img.alt = '';
+      img.loading = 'lazy';
+      img.onclick = () => {
+        const allFiles = folder === '1' ? young : older;
+        lbImages = allFiles.map(fn => ({ src: encodeURI('photos/פרק א׳/' + folder + '/' + fn), caption: '' }));
+        openLightbox(i);
+      };
+      container.appendChild(img);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    buildGrid('grid-young', young, '1');
+    buildGrid('grid-older', older, '2');
+  });
+})();
+</script>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 1: ההתחלה -->
+<section class="fade-in">
+  <div class="section-label">פרק ב׳</div>
+  <h2>מהרגע שראיתי אותך</h2>
+  <p style="color:rgba(255,255,255,0.55);">2019 — 2021</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">חתונה של דינו, 2019</div>
+      <div class="tl-title">בלתי מושגת</div>
+      <div class="tl-text">
+        ראיתי אותך מרחוק ולא האמנתי שאת בכלל אופציה בשבילי. <span class="highlight">בלתי מושגת.</span><br><br>
+        הצעתי לך MDMA כל שתי דקות — רק כדי לדבר איתך. סירבת בנימוס, כי היית על אסיד.<br>
+        אבל משום מה ראית ממני הילה.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">כמה ימים אחרי</div>
+      <div class="tl-title">״אני רוצה מישהו כמו אהוד״</div>
+      <div class="tl-text">
+        חברה ניסתה להכיר לך מישהו. אמרת לה:<br>
+        <em style="color:var(--pink);">״לא רוצה — אני רוצה מישהו יותר כמו אהוד.״</em><br><br>
+        היא אמרה: <em>״אהה, אהוד? אז בואי אארגן לך את אהוד.״</em><br><br>
+        דינו דיבר איתי. אני לא האמנתי שהאוצר הזה הגיע אליי.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">4.11.2019</div>
+      <div class="tl-title">קפה אירופה — הדייט הראשון</div>
+      <div class="tl-text">
+        מרגריטה. שתיים. שלוש.<br>
+        בשלב מסוים החלקת את הכוס שלך לכוס שלי — בלי שאמרת מילה. <span class="highlight">גאונות טהורה.</span><br><br>
+        ידעתי שאני בצרות.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">דייט שלישי</div>
+      <div class="tl-title">שש-בש ו״אל תתרגלי״</div>
+      <div class="tl-text">
+        התערבנו: מי שמפסיד — מבשל לשני.<br>
+        <span class="highlight">את 7, אני 2.</span><br><br>
+        הכנתי לך ארוחה מפנקת. הגשתי בחיוך ואמרתי:<br>
+        <em style="color:var(--gold); font-size:1.05rem;">״אל תתרגלי.״</em>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">תחילת הקשר</div>
+      <div class="tl-title">את נתת לי את הגב</div>
+      <div class="tl-text">
+        הייתי בחדרת ביצוע — עסוק, עמוק, לא זמין כמו שהייתי צריך להיות.<br>
+        את לא לחצת. לא דרשת. הלכתי לטיפול — <span class="highlight">ואת הצטרפת אליי.</span><br><br>
+        פעם אחת הייתי בטוח שאת עומדת לפרד ממני — חיכיתי לך מחוץ למסודרות, הכנתי את עצמי.<br>
+        ובמקום זה נתת לי ביטחון. אמרת לי שאת מאמינה בנו.<br><br>
+        חצי שנה — ואת לא אמרת מילה. <span class="highlight">רק האמנת.</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">שנה אחרי — 2020</div>
+      <div class="tl-title">הצעת נישואין בפיג׳מה</div>
+      <div class="tl-text">
+        בבוקר — בבית שלנו, בסלון, בפיג׳מה — שאלתי אותך.<br>
+        <span class="highlight">בלי הפתעות. בלי מסעדה. רק אנחנו.</span><br><br>
+        אחרי זה הלכתי לבקש את ידך מהוריך.<br>
+        ובערב — מפגש משפחות ראשון.<br><br>
+        כל זה באותו יום אחד.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- סרטון הצעה -->
+  <div style="margin-top:2rem; border-radius:16px; overflow:hidden; max-width:600px; margin-inline:auto;">
+    <video controls style="width:100%; display:block; border-radius:16px;" preload="metadata">
+      <source src="video/סרטון ההצעה/asking.mp4" type="video/mp4">
+    </video>
+    <p style="text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.35); margin-top:0.6rem;">הצעת הנישואין — בסלון, בפיג׳מה 💍</p>
+  </div>
+
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION: החתונה עד הילדים -->
+<section class="fade-in">
+  <div class="section-label">פרק ג׳</div>
+  <h2>החתונה עד הילדים</h2>
+  <p style="color:rgba(255,255,255,0.55);">1.7.2021 — היום</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">1–2.7.2021</div>
+      <div class="tl-title">כוכב הים — שני ימים שלא נגמרו</div>
+      <div class="tl-text">
+        לא עשינו חתונה. עשינו <span class="highlight">פסטיבל.</span><br><br>
+        יומיים בכוכב הים. כל מי שאנחנו אוהבים. רקדנו מאחרי החופה עד 6 אחה"צ למחרת.<br>
+        אף אחד לא הלך הביתה.
+        אף אחד לא רצה.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">אחרי החתונה</div>
+      <div class="tl-title">ברלין — פעם אחרונה לפני</div>
+      <div class="tl-text">
+        טסנו עם דינו ונועה לחגוג את החיים לפני שנכנסים להריון.<br>
+        מסיבות. לילות. ואז — <span class="highlight">ניסינו להיכנס לברגהיין.</span><br>
+        נכנסנו.<br>
+        יצאנו כי דינו ונועה חיכו בחוץ לארוחת צהריים.
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2022</div>
+      <div class="tl-title">רני בדרך — מראים להורים</div>
+      <div class="tl-text">
+        גילינו בהתרגשות גדולה.<br>
+        ואז הגיע הרגע שמספרים להורים —<br>
+        <span class="highlight">יש סרטון. הוא שווה הכל.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- סרטון telling -->
+  <div style="margin-top:1.5rem; border-radius:16px; overflow:hidden; max-width:600px; margin-inline:auto;">
+    <video controls style="width:100%; display:block; border-radius:16px;" preload="metadata">
+      <source src="video/rani/telling.mov" type="video/mp4">
+    </video>
+    <p style="text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.35); margin-top:0.6rem;">מספרים על רני 🤍</p>
+  </div>
+
+  <div class="timeline" style="margin-top:2rem;">
+
+    <div class="tl-item">
+      <div class="tl-date">לידת רני</div>
+      <div class="tl-title">ירידת מים</div>
+      <div class="tl-text">
+        הגיע הרגע.<br>
+        <span class="highlight">רני נולד.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- סרטוני לידה -->
+  <div style="margin-top:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; max-width:600px; margin-inline:auto;">
+    <video controls style="width:100%; border-radius:12px;" preload="metadata">
+      <source src="video/rani/birth/IMG_1340.MOV" type="video/mp4">
+    </video>
+    <video controls style="width:100%; border-radius:12px;" preload="metadata">
+      <source src="video/rani/birth/f790b98c-b304-46d1-acfc-efc028a76e78.MP4" type="video/mp4">
+    </video>
+  </div>
+  <div style="max-width:600px; margin-inline:auto; margin-top:0.75rem; border-radius:12px; overflow:hidden;">
+    <img src="video/rani/birth/IMG_1360.HEIC" style="width:100%; display:block; border-radius:12px;" loading="lazy" alt="לידת רני">
+  </div>
+
+  <div class="timeline" style="margin-top:2rem;">
+
+    <div class="tl-item">
+      <div class="tl-date">יום הולדת 1 לרני</div>
+      <div class="tl-title">דן קיסריה — כל המשפחה</div>
+      <div class="tl-text">
+        הזמנו את כל המשפחה ליום בריכה עם מסאז׳.<br>
+        3 לילות. בלתי נשכחים.<br>
+        <span class="highlight">נפשנו כמשפחה — ואהבנו את זה.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- גלריית רני 1 -->
+  <div class="gallery-grid" style="margin-top:1.5rem;" id="rani1-gallery">
+    <script>
+    (function(){
+      const rani1Photos = [
+        'photos/רני 1 /4537a383-7c5c-4e4a-8763-d80a2638e89a.JPG',
+        'photos/רני 1 /IMG_2547.heic',
+        'photos/רני 1 /IMG_2554.HEIC',
+        'photos/רני 1 /IMG_2559.heic',
+        'photos/רני 1 /IMG_2580.HEIC'
+      ];
+      document.addEventListener('DOMContentLoaded', function() {
+        const grid = document.getElementById('rani1-gallery');
+        rani1Photos.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = encodeURI(src);
+          img.className = 'gallery-thumb';
+          img.loading = 'lazy';
+          img.onclick = function() {
+            lbImages = rani1Photos.map(p => ({ src: encodeURI(p), caption: '' }));
+            openLightbox(i);
+          };
+          grid.appendChild(img);
+        });
+      });
+    })();
+    </script>
+  </div>
+
+  <div class="timeline" style="margin-top:2rem;">
+
+    <div class="tl-item">
+      <div class="tl-date">2024</div>
+      <div class="tl-title">מאי בדרך — במעלית</div>
+      <div class="tl-text">
+        סיון סיימה להניק. עלתה במעלית במשרד, התקשרה אליי ואמרה:<br>
+        <em style="color:var(--pink);">״אני מרגישה סיון של פעם. חופשייה. חזקה.״</em><br><br>
+        סוף שבוע חתונה של ליאור.<br>
+        <span class="highlight">שם איברתי אותה.</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">חודש אחר כך</div>
+      <div class="tl-title">מיון + פנימית + בהריון</div>
+      <div class="tl-text">
+        חודש שלם סיון הרגישה לא טוב. רופאים בודקים — <span class="highlight">כל המדדים בשיא.</span> הכל מושלם על הנייר. אבל היא לא טוב.<br><br>
+        נשלחה למיון. אושפזה בפנימית.<br><br>
+        ביקשה שהרופאים יבואו בלעדיי. הפרצוף שלה לא היה לחוץ במיוחד.<br>
+        חשבתי לעצמי: <em style="color:rgba(255,255,255,0.5);">״או שהיא בהריון, או שיש לה סרטן.״</em><br><br>
+        <span class="highlight">היא הייתה בהריון.</span><br>
+        ככה גילינו על מאי.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 2: לוח התוצאות -->
+<section class="fade-in">
+  <div class="section-label">פרק ד׳ — בונוס</div>
+  <h2>לוח התוצאות הרשמי 🏆</h2>
+  <p>הטורניר הגדול בכל הזמנים ביבשת מרכז אמריקה הצפונית. <span class="highlight">הסטטיסטיקות לא משקרות — ואת יודעת את זה.</span></p>
+
+  <div class="scoreboard">
+    <div class="scoreboard-title">סיכום כללי — כל הזמנים</div>
+
+    <div class="score-row">
+      <div class="score-game">ששבש</div>
+      <div class="score-numbers">
+        <span class="score-me">14</span>
+        <span class="score-vs">:</span>
+        <span class="score-her">17 <span class="winner-badge">סיון ✓</span></span>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-game">שחמט</div>
+      <div class="score-numbers">
+        <span class="score-me">5</span>
+        <span class="score-vs">:</span>
+        <span class="score-her">12 <span class="winner-badge">סיון ✓</span></span>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-game">שיטהד</div>
+      <div class="score-numbers">
+        <span class="score-me">3</span>
+        <span class="score-vs">:</span>
+        <span class="score-her">5 <span class="winner-badge">סיון ✓</span></span>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-game">פוקר סיני</div>
+      <div class="score-numbers">
+        <span class="score-win">7 <span style="color:var(--gold); font-size:0.7rem; background:rgba(201,168,76,0.15); border-radius:20px; padding:0.1em 0.5em;">אהוד ✓</span></span>
+        <span class="score-vs">:</span>
+        <span class="score-me">3</span>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-game">קאבו</div>
+      <div class="score-numbers">
+        <span class="score-win">40 <span style="color:var(--gold); font-size:0.7rem; background:rgba(201,168,76,0.15); border-radius:20px; padding:0.1em 0.5em;">אהוד ✓</span></span>
+        <span class="score-vs">:</span>
+        <span class="score-me">21</span>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div class="score-game">כדורעף חופים (ביחד נגד העולם)</div>
+      <div class="score-numbers">
+        <span class="score-win" style="color:var(--gold)">3 נצחונות</span>
+        <span class="score-vs">/</span>
+        <span class="score-me">2 הפסדים</span>
+      </div>
+    </div>
+
+    <div style="padding: 0.8rem 1.2rem; text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.4);">
+      ובשש-בש, ששם: לפני שהכרנו — הדייט הראשון — סיון 7, אהוד 2
+    </div>
+  </div>
+
+  <p style="text-align:center; font-size:0.9rem; color:rgba(255,255,255,0.4);">
+    * בשחמט ובששבש — אין ויכוח. את מנצחת.<br>
+    * בפוקר ובקאבו — אני מנצח. אבל ב-60% מהמשחקים את "עייפה" ו"לא ממוקדת".<br>
+    * בכדורעף — אנחנו יחד, ולכן תמיד נצחנו.
+  </p>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 3: סיון בלוגוס -->
+<section class="fade-in">
+  <div class="section-label">פרק ד׳</div>
+  <h2>השפה שלך — מילון לא רשמי</h2>
+  <p>את פועלת ללא לולאה פונולוגית. זה לא חסרון — זה פיצ׳ר.</p>
+
+  <div class="card pink-border" style="margin-top:1.5rem;">
+    <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:0.8rem; letter-spacing:0.1em;">דוגמא קנונית</div>
+    <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+      <div style="text-align:center; flex:1; min-width:120px;">
+        <div style="font-size:0.7rem; color:rgba(255,255,255,0.4); margin-bottom:0.3rem;">מה שאת אומרת</div>
+        <div style="font-size:1.2rem; font-weight:700; color:var(--pink);">Great mind — Tinkerbel</div>
+      </div>
+      <div style="font-size:1.5rem; color:rgba(255,255,255,0.2);">→</div>
+      <div style="text-align:center; flex:1; min-width:120px;">
+        <div style="font-size:0.7rem; color:rgba(255,255,255,0.4); margin-bottom:0.3rem;">מה שהתכוונת</div>
+        <div style="font-size:1.2rem; font-weight:700; color:var(--gold);">Great minds think alike</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:0.75rem;">
+    <div style="font-size:0.9rem; color:rgba(255,255,255,0.6);">ביטוי נוסף לאוסף:</div>
+    <div style="font-size:1rem; margin-top:0.5rem; line-height:1.7;">
+      <span class="highlight">״אני מביאה משהו מהמטבח״</span>
+      <span style="color:rgba(255,255,255,0.5);"> = </span>
+      <span>אהוד, קום תביא.</span>
+    </div>
+    <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin-top:0.5rem;">
+      * עדיין לא ברור אם זה רמז עדין או אסטרטגיה מתוחכמת. שתי האפשרויות מרשימות.
+    </div>
+  </div>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 4: הילדים -->
+<section class="fade-in">
+  <div class="section-label">פרק ה׳</div>
+  <h2>רני ומאי</h2>
+
+  <div class="card gold-border">
+    <div style="font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.6rem;">רני, 3</div>
+    <p style="margin:0; font-size:0.97rem;">
+      פעם אחת נגמר האוכל במקרר. רני רעב. הבאנו לו טחינה על לחם יבש.
+      הוא הסתכל על הצלחת, טעם, ואמר:
+    </p>
+    <div style="font-size:2rem; text-align:center; margin:1rem 0;">מממ 😋</div>
+    <p style="margin:0; font-size:0.88rem; color:rgba(255,255,255,0.5); text-align:center;">
+      ילד מרוצה. ממ. גאווה.
+    </p>
+  </div>
+
+  <div class="card pink-border" style="margin-top:1rem;">
+    <div style="font-size:0.75rem; color:var(--pink); letter-spacing:0.1em; margin-bottom:0.6rem;">מאי, שנה ו-2 חודשים</div>
+    <p style="margin:0; font-size:0.97rem;">
+      מאי עושה דבר אחד שלא ניתן להסביר במילים:
+    </p>
+    <div style="font-size:3.5rem; text-align:center; margin:1rem 0; letter-spacing:0.1em;">
+      אוווו 😮
+    </div>
+    <p style="margin:0; font-size:0.88rem; color:rgba(255,255,255,0.5); text-align:center;">
+      פה מעוגל. עיניים ענקיות. הלב נמס.
+    </p>
+  </div>
+
+  <div class="quote-block" style="margin-top:2rem;">
+    <p>
+      ״היית בילנית מספר 1 — יצאת עד הצהריים, הלכת למסיבות הכי שוות.
+      ופתאום עם הילדים — <span class="highlight">טוטאלית לגמרי</span>. הכיף שלך זה המשפחה שלך עכשיו.״
+    </p>
+  </div>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+/* MAP */
+#travel-map {
+  width: 100%;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(201,168,76,0.25);
+  position: relative;
+  z-index: 0;
+}
+.leaflet-container { background: #1a1a2e !important; }
+.map-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  margin-top: 0.6rem;
+}
+
+/* Custom pin */
+.map-pin {
+  width: 36px; height: 36px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: transform 0.2s;
+}
+.map-pin .pin-inner {
+  transform: rotate(45deg);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* GALLERY MODAL */
+#gallery-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(8px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#gallery-modal.open { display: flex; }
+
+#gallery-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+}
+#gallery-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: white;
+}
+#gallery-subtitle {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.3rem;
+}
+#gallery-close {
+  position: absolute;
+  top: 0; left: 0;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#gallery-grid, .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 700px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+#gallery-grid::-webkit-scrollbar, .gallery-grid::-webkit-scrollbar { width: 4px; }
+#gallery-grid::-webkit-scrollbar-thumb, .gallery-grid::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+.gallery-thumb {
+  aspect-ratio: 1;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+  background: rgba(255,255,255,0.05);
+}
+.gallery-thumb:hover { transform: scale(1.04); opacity: 0.9; }
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px dashed rgba(255,255,255,0.12);
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item .photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  padding: 0.5rem 0.5rem 0.4rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+}
+.gallery-empty {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1.5px dashed rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  cursor: default;
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+}
+#lightbox-caption {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+#lightbox-close {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  background: rgba(255,255,255,0.1);
+  border: none; color: white;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#lb-prev, #lb-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none; color: white;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#lb-prev { right: 1rem; }
+#lb-next { left: 1rem; }
+</style>
+
+<!-- SECTION: החיים שלנו -->
+<section class="fade-in">
+  <div class="section-label">בין הפרקים</div>
+  <h2>החיים שלנו 💛</h2>
+  <p>כל הרגעים שביניהם — הם אלה שאני הכי אוהב.</p>
+  <div class="gallery-grid" id="life-gallery">
+    <script>
+    (function(){
+      const lifePhotos = [
+        'photos/החיים שלנו/070ef05e-6d8f-4107-ada9-1bc8b561196b.jpg',
+        'photos/החיים שלנו/2034bb9a-9355-4a43-881c-b27c96c2bc3a.jpg',
+        'photos/החיים שלנו/22b5462f-16f4-4fa3-8097-f8833f579897.jpg',
+        'photos/החיים שלנו/258fcb82-d1da-4c28-aa31-83113597c514.jpg',
+        'photos/החיים שלנו/25fdfcc4-6e96-4096-b40a-f8c4c6486a39.jpg',
+        'photos/החיים שלנו/29f40ea6-0184-4e26-b392-63d9200b286f.jpg',
+        'photos/החיים שלנו/31bb5740-b55e-471f-a3b4-628ce6ea36d0.jpg',
+        'photos/החיים שלנו/37806944-9bba-4286-a812-b56d8a66f1e1.jpg',
+        'photos/החיים שלנו/4556a01f-8887-4d50-a1a9-67e93bb8a593.jpg',
+        'photos/החיים שלנו/4c1efe62-09ae-4de3-a7ed-12ef1de753b9.jpg',
+        'photos/החיים שלנו/591a0a2c-fd32-419d-985b-43ba4ccc27df.jpg',
+        'photos/החיים שלנו/5e98961e-3fa8-4571-be61-5cd02728ad24.jpg',
+        'photos/החיים שלנו/90EC98FA-8C94-42A5-99B8-BC4335ECB15D.jpg',
+        'photos/החיים שלנו/IMG_2520.jpeg',
+        'photos/החיים שלנו/IMG_2654.jpeg',
+        'photos/החיים שלנו/IMG_2683.jpeg',
+        'photos/החיים שלנו/IMG_3059.jpeg',
+        'photos/החיים שלנו/IMG_3173.jpeg',
+        'photos/החיים שלנו/IMG_3352.jpeg',
+        'photos/החיים שלנו/IMG_3813.jpeg',
+        'photos/החיים שלנו/IMG_4019.jpeg',
+        'photos/החיים שלנו/IMG_4162.jpeg',
+        'photos/החיים שלנו/IMG_4300.jpeg',
+        'photos/החיים שלנו/IMG_4778.jpeg',
+        'photos/החיים שלנו/IMG_4814.jpeg',
+        'photos/החיים שלנו/IMG_4877.jpeg',
+        'photos/החיים שלנו/IMG_4897.jpeg',
+        'photos/החיים שלנו/IMG_4910.jpeg',
+        'photos/החיים שלנו/IMG_4945.jpeg',
+        'photos/החיים שלנו/IMG_4993.jpeg',
+        'photos/החיים שלנו/IMG_5079.jpeg',
+        'photos/החיים שלנו/IMG_5738.jpeg',
+        'photos/החיים שלנו/IMG_6567.jpeg',
+        'photos/החיים שלנו/IMG_9036.jpeg',
+        'photos/החיים שלנו/b0042afb-9c8c-4671-9759-8567fa973c35.jpg',
+        'photos/החיים שלנו/bc64494a-ae7b-4316-b339-0056a45efa9c.jpg',
+        'photos/החיים שלנו/d22ece6f-e050-493b-8f0c-2f7db06d2f0c.jpg',
+        'photos/החיים שלנו/f4e36c36-b2d4-4d8c-8bb7-9ff523da934d.jpg',
+        'photos/החיים שלנו/f63f88ea-42d9-4337-a6df-292738503557.jpg'
+      ];
+      document.addEventListener('DOMContentLoaded', function() {
+        const grid = document.getElementById('life-gallery');
+        lifePhotos.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = encodeURI(src);
+          img.className = 'gallery-thumb';
+          img.loading = 'lazy';
+          img.onclick = function() {
+            lbImages = lifePhotos.map(p => ({ src: encodeURI(p), caption: '' }));
+            openLightbox(i);
+          };
+          grid.appendChild(img);
+        });
+      });
+    })();
+    </script>
+  </div>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 5: טיולים -->
+<section class="fade-in" style="max-width:780px;">
+  <div class="section-label">פרק ו׳</div>
+  <h2>המפה שלנו</h2>
+  <p>כמה יבשות, כמה ים, כמה שלג, כמה ילדים — וכולן אנחנו. <span style="color:rgba(255,255,255,0.4); font-size:0.9rem;">לחצי על סיכה לתמונות</span></p>
+
+  <div id="travel-map"></div>
+  <div class="map-hint">לחץ על כל סיכה לצפייה בתמונות מהטיול</div>
+
+  <div class="card pink-border" style="margin-top:1.5rem;">
+    <div style="font-size:0.75rem; color:var(--pink); letter-spacing:0.1em; margin-bottom:0.6rem;">ברלין — עובדה היסטורית</div>
+    <p style="margin:0; font-size:0.97rem; line-height:1.8;">
+      נכנסנו ל<span class="highlight">ברגהיין</span> — המועדון הכי אקסקלוסיבי בעולם, שרוב האנשים לא עוברים את הדלת.<br>
+      עברנו. ויצאנו.<br>
+      כי <span class="gold">דינו ונועה חיכו בחוץ לארוחת צהריים.</span>
+    </p>
+    <div style="font-size:0.8rem; color:rgba(255,255,255,0.3); margin-top:0.8rem; text-align:center;">
+      * לא ברור אם זה כי אנחנו אנשים טובים מדי, או כי ארוחת הצהריים הייתה שווה יותר. כנראה שניהם.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem; background:rgba(201,168,76,0.05);">
+    <p style="margin:0; font-size:0.92rem; color:rgba(255,255,255,0.7); line-height:1.8;">
+      באולבוש, שבועיים. כל ערב אותה מסעדה. אותו שולחן. אותו שיר — זה שקוראים לו עכשיו <span class="gold">מקיקיקו.</span> 🎶
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY MODAL -->
+<div id="gallery-modal" onclick="closeGallery(event)">
+  <div id="gallery-header">
+    <button id="gallery-close" onclick="closeGalleryBtn()">✕</button>
+    <div id="gallery-title"></div>
+    <div id="gallery-subtitle"></div>
+  </div>
+  <div id="gallery-grid"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button id="lb-prev" onclick="event.stopPropagation(); lbNav(-1)">›</button>
+  <button id="lb-next" onclick="event.stopPropagation(); lbNav(1)">‹</button>
+  <img id="lightbox-img" src="" alt="" />
+  <div id="lightbox-caption"></div>
+</div>
+
+<div class="divider">· · · · ·</div>
+
+<script>
+// ── DESTINATIONS DATA ──
+const DESTINATIONS = [
+  {
+    id: 'mexico',
+    name: 'מקסיקו — ירח דבש',
+    note: 'כמעט מתנו פעמיים, וגם פחדנו מכל מכונית שחורה 💍',
+    emoji: '🇲🇽',
+    color: '#e8748a',
+    lat: 20.2,  lng: -87.5,
+    photos: [
+      'photos/מקסיקו/20872bb9-6cfd-47e4-9c6d-c0e0c4b2ed87.jpg',
+      'photos/מקסיקו/50421c50-0ff5-46f0-9402-7a3211f659b5.jpg',
+      'photos/מקסיקו/56ded8d7-493e-4b80-84b7-7405cbf351f3.jpg',
+      'photos/מקסיקו/66A984B5-2F9D-40F1-9B38-E59DDD84D387.jpg',
+      'photos/מקסיקו/81d86d71-b7bd-48ed-bf03-6c58cfe486a5.jpg',
+      'photos/מקסיקו/IMG_0283.jpeg',
+      'photos/מקסיקו/IMG_9350.jpeg',
+      'photos/מקסיקו/IMG_9441.JPG',
+      'photos/מקסיקו/IMG_9589.jpeg',
+      'photos/מקסיקו/IMG_9671.jpeg',
+      'photos/מקסיקו/IMG_9850.jpeg',
+      'photos/מקסיקו/e8fa5303-bfa9-4f78-aa78-b0823cd74944.jpg'
+    ]
+  },
+  {
+    id: 'japan',
+    name: 'יפן — ארבעתינו',
+    note: 'הטיול הראשון עם שני הילדים 🎌',
+    emoji: '🇯🇵',
+    color: '#c9a84c',
+    lat: 35.7,  lng: 139.7,
+    photos: []
+  },
+  {
+    id: 'greece',
+    name: 'יוון וכריתים',
+    note: 'כמה פעמים 🌊',
+    emoji: '🇬🇷',
+    color: '#7eb8e8',
+    lat: 37.9,  lng: 23.7,
+    photos: [
+      'photos/יוון הלפגות וילות ומלונות פאר/153d5f8c-9b3e-462d-ab5b-4ec193092ec0 copy.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/1e903af3-762e-4233-9b35-6ddbb23e6dc7.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/218bb257-46e7-4be7-8470-6298e3cd265b.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/2fcfa501-57cd-4692-a969-da5b153a8cbb.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/37dadc7c-7bcd-4a9d-bbfe-6cec888afabd.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/41bfedb8-355c-4b8e-b232-32744ce497cc.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/4a164c40-7edb-452d-ad62-7c4f5be1858a.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/4b0d4926-793e-488c-a4e2-db8bb603b645.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/501c725f-e038-4fae-aa81-1c1b12f001ff.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/5af0237a-e735-4f43-bd0a-9acc2e7f6395.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/7b98bf35-fe40-49ac-903b-18f387a8a779.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/823c96dc-ad97-4e97-8491-fdef094e8786.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/9407f285-ed52-4b0f-808c-700db142309a.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/98c99b1a-741c-4a7e-a418-19cd35623cef.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/9b7111fa-0db9-4f7d-a33a-42891e18f104.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0471.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0493.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0510.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0514.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0555.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0625.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0827.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0902.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0930.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_0938.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1151.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1193.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1195.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1260.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1308.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1328.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1344.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1393.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1618.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1654.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1662.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1675.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1702.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1737.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1742.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1753.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_1819.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_4805.JPG',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_4818.JPG',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_4821.JPG',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7354.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7382 2.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7382.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7395.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7406.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7525.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7535.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7566.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7567.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7627.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7923.JPG',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_7999.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_9558.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/IMG_9628.jpeg',
+      'photos/יוון הלפגות וילות ומלונות פאר/b27abaf9-41ea-45ca-9066-64595423eb84.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/bfa40e2c-d601-4974-8357-350539558e31.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/c412e40c-97a5-4c76-8e7e-ee646e169c75.jpg',
+      'photos/יוון הלפגות וילות ומלונות פאר/fa6af4b7-a607-4816-9521-0067e4138cc7.jpg'
+    ]
+  },
+  {
+    id: 'olbush',
+    name: 'אולבוש',
+    note: 'שבועיים, אותה מסעדה, מקיקיקו 🎵',
+    emoji: '🎵',
+    color: '#c9a84c',
+    lat: 38.65, lng: 26.5,
+    photos: []
+  },
+  {
+    id: 'portugal',
+    name: 'פורטוגל',
+    note: 'טיול עם הורי סיון 🇵🇹',
+    emoji: '🇵🇹',
+    color: '#e88a3a',
+    lat: 38.7,  lng: -9.1,
+    photos: [
+      'photos/פורטוגל/2951eaf2-538c-4212-88a1-f5bd63cee104.jpg',
+      'photos/פורטוגל/3e51de64-98fd-437f-977c-105a7f4b106f.jpg',
+      'photos/פורטוגל/4c0c1105-c792-4d88-a036-2fab546ea795.jpg',
+      'photos/פורטוגל/7c93aa40-3e7f-4c95-98b0-68e7845e87c7.jpg',
+      'photos/פורטוגל/9fdc9b93-1843-48b0-bb78-c015d0b00f62.jpg',
+      'photos/פורטוגל/IMG_5214.jpeg',
+      'photos/פורטוגל/IMG_5531.jpeg',
+      'photos/פורטוגל/IMG_5604.jpeg',
+      'photos/פורטוגל/IMG_5706.jpeg',
+      'photos/פורטוגל/IMG_5759.jpeg',
+      'photos/פורטוגל/a4e3d44d-52f1-49be-9069-d85f15f112fd.jpg',
+      'photos/פורטוגל/bc43e829-4bbc-46db-9746-75366768af61.jpg'
+    ]
+  },
+  {
+    id: 'snow',
+    name: 'סנובורד',
+    note: 'עם הורי סיון ❄️',
+    emoji: '🏔️',
+    color: '#a8d8ea',
+    lat: 46.5,  lng: 9.8,
+    photos: [
+      'photos/סנאובורד/19d41f2b-a5e7-4059-9c97-b32872294bc0.jpg',
+      'photos/סנאובורד/IMG_1260.jpeg',
+      'photos/סנאובורד/IMG_1336.jpeg',
+      'photos/סנאובורד/IMG_1391.jpeg',
+      'photos/סנאובורד/IMG_1403.jpeg'
+    ]
+  },
+  {
+    id: 'berlin',
+    name: 'ברלין',
+    note: 'נכנסנו לברגהיין, יצאנו כי דינו ונועה חיכו לארוחת צהריים 🥨',
+    emoji: '🇩🇪',
+    color: '#b0b0b0',
+    lat: 52.52, lng: 13.4,
+    photos: [
+      'photos/ברלין/14884ef6-2f5d-4a83-83a2-1145dbc9da6a.jpg',
+      'photos/ברלין/4b32af8b-a0db-448d-be62-976630ef6769.jpg',
+      'photos/ברלין/6eadbe01-0bff-44c5-b6df-444f9df82bbd.jpg',
+      'photos/ברלין/79bfabd6-7b56-4947-ace0-34f499fa1598.jpg',
+      'photos/ברלין/d4a09023-817e-4419-a21c-49f9c0b5d336.jpg'
+    ]
+  }
+];
+
+// ── INIT MAP ──
+function initMap() {
+  const map = L.map('travel-map', {
+    center: [30, 20],
+    zoom: 2,
+    zoomControl: true,
+    scrollWheelZoom: false,
+    attributionControl: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© CartoDB',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  DESTINATIONS.forEach(dest => {
+    const iconHtml = `
+      <div class="map-pin" style="background:${dest.color};">
+        <span class="pin-inner">${dest.emoji}</span>
+      </div>`;
+
+    const icon = L.divIcon({
+      html: iconHtml,
+      className: '',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+      popupAnchor: [0, -36]
+    });
+
+    const marker = L.marker([dest.lat, dest.lng], { icon }).addTo(map);
+
+    marker.bindTooltip(`<strong>${dest.name}</strong><br><span style="color:rgba(255,255,255,0.6);font-size:0.78rem;">${dest.note}</span>`, {
+      direction: 'top',
+      className: 'map-tooltip',
+      offset: [0, -8]
+    });
+
+    marker.on('click', () => openGallery(dest));
+  });
+
+  // Add tooltip style
+  const style = document.createElement('style');
+  style.textContent = `.map-tooltip {
+    background: #1a1a2e !important;
+    border: 1px solid rgba(201,168,76,0.4) !important;
+    border-radius: 10px !important;
+    color: white !important;
+    font-family: 'Heebo', sans-serif !important;
+    font-size: 0.88rem !important;
+    padding: 0.5em 0.8em !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    direction: rtl;
+  }
+  .map-tooltip::before { border-top-color: rgba(201,168,76,0.4) !important; }`;
+  document.head.appendChild(style);
+}
+
+// ── GALLERY ──
+let currentDest = null;
+let lbImages = [];
+let lbIndex = 0;
+
+function openGallery(dest) {
+  currentDest = dest;
+  document.getElementById('gallery-title').textContent = dest.name;
+  document.getElementById('gallery-subtitle').textContent = dest.note;
+
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+
+  // Load photos from saved data + dest.photos
+  const saved = JSON.parse(localStorage.getItem('sivan_photos_v1') || '{}');
+  const photos = saved[dest.id] || dest.photos;
+
+  lbImages = [];
+
+  if (photos.length === 0) {
+    // Show empty state with upload hint
+    const empty = document.createElement('div');
+    empty.style.cssText = 'grid-column:1/-1; text-align:center; padding:3rem 1rem; color:rgba(255,255,255,0.3); font-size:0.9rem; line-height:2;';
+    empty.innerHTML = `📷<br>אין תמונות עדיין<br><span style="font-size:0.78rem;">הוסף תמונות לתיקייה <code style="background:rgba(255,255,255,0.08);padding:0.1em 0.4em;border-radius:4px;">photos/${dest.id}/</code><br>ואז לחץ על "הוסף תמונות" למטה</span>`;
+    grid.appendChild(empty);
+  } else {
+    photos.forEach((photo, i) => {
+      const src = typeof photo === 'string' ? photo : photo.src;
+      const caption = typeof photo === 'object' ? photo.caption : '';
+      lbImages.push({ src, caption });
+
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.onclick = () => openLightbox(i);
+      item.innerHTML = `<img src="${src}" alt="${caption}" onerror="this.parentElement.innerHTML='<div class=gallery-empty>🖼️<span>לא נמצאה</span></div>'"/>
+        ${caption ? `<div class="photo-caption">${caption}</div>` : ''}`;
+      grid.appendChild(item);
+    });
+  }
+
+  // Add photo button
+  const addBtn = document.createElement('div');
+  addBtn.style.cssText = 'grid-column:1/-1; margin-top:0.5rem;';
+  addBtn.innerHTML = `<label style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.2);border-radius:10px;padding:0.6em 1.2em;cursor:pointer;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+    <span>📎 הוסף תמונות</span>
+    <input type="file" accept="image/*" multiple style="display:none" onchange="handlePhotoUpload(event,'${dest.id}')"/>
+  </label>`;
+  grid.appendChild(addBtn);
+
+  document.getElementById('gallery-modal').classList.add('open');
+}
+
+function handlePhotoUpload(event, destId) {
+  const files = Array.from(event.target.files);
+  const saved = JSON.parse(localStorage.getItem('sivan_photos_v1') || '{}');
+  if (!saved[destId]) saved[destId] = [];
+
+  let loaded = 0;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      saved[destId].push({ src: e.target.result, caption: file.name.replace(/\.[^/.]+$/, '') });
+      loaded++;
+      if (loaded === files.length) {
+        localStorage.setItem('sivan_photos_v1', JSON.stringify(saved));
+        const dest = DESTINATIONS.find(d => d.id === destId);
+        if (dest) openGallery(dest);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function closeGallery(e) {
+  if (e.target === document.getElementById('gallery-modal')) closeGalleryBtn();
+}
+function closeGalleryBtn() {
+  document.getElementById('gallery-modal').classList.remove('open');
+}
+
+// ── LIGHTBOX ──
+function openLightbox(idx) {
+  lbIndex = idx;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+}
+function renderLightbox() {
+  const item = lbImages[lbIndex];
+  document.getElementById('lightbox-img').src = item.src;
+  document.getElementById('lightbox-caption').textContent = item.caption || '';
+}
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  renderLightbox();
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'ArrowRight') lbNav(-1);
+    if (e.key === 'ArrowLeft') lbNav(1);
+    if (e.key === 'Escape') closeLightbox();
+  }
+  if (e.key === 'Escape') closeGalleryBtn();
+});
+
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+
+<!-- SECTION 6: מה שאהוד כתב -->
+<section class="fade-in">
+  <div class="section-label">פרק ז׳</div>
+  <h2>מה שכתבתי לך</h2>
+
+  <div class="quote-block">
+    <p>״את עוטפת אותי באהבה שלך, ממלאת אותי בשמחת בחיים, משלימה אותי בחסרונותיי ודוחפת אותי מעבר ליכולותי. את לא מוותרת עד שאצליח להבין.״</p>
+  </div>
+
+  <div class="quote-block">
+    <p>״את המגדלור שמסמנת את הדרך הנכונה, יציבה ומסתכלת קדימה לאופק לכל הכיוונים.״</p>
+  </div>
+
+  <div class="quote-block">
+    <p>״יודע להגיד בלב שלם שזיכיתי. זכיתי באהבה שקיימת רק פה, זכיתי במשפחה שתדע להיות בשביל האחר בכל מצב.״</p>
+  </div>
+
+  <div class="quote-block">
+    <p>״כי לך יש את הדבר הזה שקשה להסביר אותו במילים — בלנד של הכנות, המסירות והאכפתיות שלך. כל אחד מאחל לעצמו אדם כזה לידו.״</p>
+  </div>
+
+  <div style="margin-top:1.5rem; padding:1.2rem; background:rgba(255,255,255,0.03); border-radius:14px; font-size:0.88rem; color:rgba(255,255,255,0.35); text-align:center; line-height:1.8;">
+    מבטיח להסתכל עליך כל החיים במבט מאוהב ·
+    מבטיח לנשק אותך גם שעוקץ ·
+    מבטיח שלעולם לא נלך לישון בריב ·
+    מבטיח כל החיים לסדר לך את האדום בספה ·
+    ומבטיח להיות בן זוג ואבא מדהים
+  </div>
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION 7: 36 סיבות -->
+<section class="fade-in">
+  <div class="section-label">פרק ח׳</div>
+  <h2>36 דברים שאני אוהב בך</h2>
+  <p>אחת לכל שנה. (היה קשה לעצור ב-36.)</p>
+
+  <div class="reasons-grid">
+    <div class="reason-card"><span class="num">01</span>הטוטאליות שלך</div>
+    <div class="reason-card"><span class="num">02</span>שראית הילה במקומות הנכונים</div>
+    <div class="reason-card"><span class="num">03</span>שאת אמא שמשקיעה את הכל</div>
+    <div class="reason-card"><span class="num">04</span>שמחצת אותי בשחמט 12:5</div>
+    <div class="reason-card"><span class="num">05</span>הצחוק שלך</div>
+    <div class="reason-card"><span class="num">06</span>Great mind Tinkerbel</div>
+    <div class="reason-card"><span class="num">07</span>שנותנת מעצמך לחברים ולמשפחה</div>
+    <div class="reason-card"><span class="num">08</span>שרוקדת איתי כל החיים</div>
+    <div class="reason-card"><span class="num">09</span>הפרצוץ אוווו של מאי — זה ממך</div>
+    <div class="reason-card"><span class="num">10</span>שהעברת לי את הכוס ולא שמתי לב</div>
+    <div class="reason-card"><span class="num">11</span>הכנות שלך</div>
+    <div class="reason-card"><span class="num">12</span>שמגיעה הביתה ועושה כביסה</div>
+    <div class="reason-card"><span class="num">13</span>הרגישות שלך</div>
+    <div class="reason-card"><span class="num">14</span>שאת רצה לרקוד בחתונות</div>
+    <div class="reason-card"><span class="num">15</span>שרואה פתרונות לפני שיש בעיה</div>
+    <div class="reason-card"><span class="num">16</span>שניצחת אותי 7:2 בדייט הראשון</div>
+    <div class="reason-card"><span class="num">17</span>האיכפתיות האמיתית שלך</div>
+    <div class="reason-card"><span class="num">18</span>שאת לא מודעת כמה את מיוחדת</div>
+    <div class="reason-card"><span class="num">19</span>שאוהבת לחגוג את החיים</div>
+    <div class="reason-card"><span class="num">20</span>שהצחקת אותי בפורים ולא ידעת</div>
+    <div class="reason-card"><span class="num">21</span>המקיקיקו שרק את יודעת</div>
+    <div class="reason-card"><span class="num">22</span>שמלמדת אותי דברים בלי לנסות</div>
+    <div class="reason-card"><span class="num">23</span>שנותנת את כל כולך בכל דבר</div>
+    <div class="reason-card"><span class="num">24</span>שרני ומאי זכו בך</div>
+    <div class="reason-card"><span class="num">25</span>הצחוק שלך בכל מצב</div>
+    <div class="reason-card"><span class="num">26</span>שמפשרת בין לב לשכל</div>
+    <div class="reason-card"><span class="num">27</span>שלא אוהבת לאכול — חוסכת זמן</div>
+    <div class="reason-card"><span class="num">28</span>שמסתכלת על דברים אחרת מכולם</div>
+    <div class="reason-card"><span class="num">29</span>שסודרת לך את האדום בספה</div>
+    <div class="reason-card"><span class="num">30</span>שאוהבת אנשים באמת</div>
+    <div class="reason-card"><span class="num">31</span>שהלכת איתי ברגל הביתה בדייט הראשון</div>
+    <div class="reason-card"><span class="num">32</span>גוטי, רוני, דניאל, דינו, נועה — החברים שבחרת</div>
+    <div class="reason-card"><span class="num">33</span>שחולמת על בית ועל בת</div>
+    <div class="reason-card"><span class="num">34</span>שמנצחת גם ביפן עם שני ילדים</div>
+    <div class="reason-card"><span class="num">35</span>שתמיד נמצאת לידי</div>
+    <div class="reason-card" style="background:rgba(232,116,138,0.1); border-color:rgba(232,116,138,0.4);"><span class="num">36</span>שאת את</div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<div id="final">
+  <div class="stars"></div>
+  <div class="halo" style="opacity:0.5;"></div>
+  <h2>יום הולדת שמח</h2>
+  <p>
+    זכינו. את ממש זכינו.<br><br>
+    שנה של בית, של בת, של ריקוד, של מקיקיקו, של קפה שנגמר לפני שהספקת להביא אותו מהמטבח.<br><br>
+    <span class="gold">אני אוהב אותך, יפה שלי. ✨</span>
+  </p>
+  <div class="signature">אהוד, רני ומאי 💛</div>
+  <div style="margin-top:3rem; font-size:0.8rem; color:rgba(255,255,255,0.2);">12.6.2026</div>
+</div>
+
+<style>
+/* ─── EDIT PANEL ─── */
+#edit-toggle {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000;
+  background: rgba(201,168,76,0.15);
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  border-radius: 50px;
+  padding: 0.45em 1.1em;
+  font-size: 0.85rem;
+  font-family: 'Heebo', sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+  display: flex; align-items: center; gap: 0.4em;
+}
+#edit-toggle:hover { background: rgba(201,168,76,0.3); }
+
+#edit-panel {
+  position: fixed;
+  top: 0; left: 0;
+  width: min(420px, 100vw);
+  height: 100vh;
+  background: #0f0f1e;
+  border-left: 1px solid rgba(201,168,76,0.2);
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 4px 0 30px rgba(0,0,0,0.5);
+}
+#edit-panel.open { transform: translateX(0); }
+
+#edit-panel-header {
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+#edit-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+#edit-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0 0.3em;
+  line-height: 1;
+}
+#edit-close:hover { color: white; }
+
+#edit-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.4rem;
+}
+#edit-scroll::-webkit-scrollbar { width: 4px; }
+#edit-scroll::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+.edit-section {
+  margin-bottom: 1.6rem;
+}
+.edit-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.edit-field {
+  margin-bottom: 0.9rem;
+}
+.edit-field label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.3rem;
+}
+.edit-field input,
+.edit-field textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.55em 0.8em;
+  color: white;
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.9rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+  direction: rtl;
+}
+.edit-field input:focus,
+.edit-field textarea:focus {
+  outline: none;
+  border-color: rgba(201,168,76,0.5);
+}
+
+#edit-panel-footer {
+  padding: 1rem 1.4rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.btn-save {
+  flex: 1;
+  background: var(--gold);
+  color: #0f0f1e;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-save:hover { opacity: 0.85; }
+.btn-reset {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.7em 0.9em;
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-reset:hover { color: white; border-color: rgba(255,255,255,0.3); }
+
+.save-toast {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--gold);
+  color: #0f0f1e;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6em 1.5em;
+  border-radius: 50px;
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+  z-index: 2000;
+  font-family: 'Heebo', sans-serif;
+}
+.save-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+</style>
+
+<!-- EDIT TOGGLE BUTTON -->
+<button id="edit-toggle" onclick="toggleEditPanel()">✏️ עריכה</button>
+
+<!-- EDIT PANEL -->
+<div id="edit-panel">
+  <div id="edit-panel-header">
+    <h3>✏️ עריכת תוכן</h3>
+    <button id="edit-close" onclick="toggleEditPanel()">✕</button>
+  </div>
+  <div id="edit-scroll">
+
+    <div class="edit-section">
+      <div class="edit-section-title">עמוד פתיחה</div>
+      <div class="edit-field">
+        <label>כותרת ראשית</label>
+        <input type="text" data-target="#hero h1" />
+      </div>
+      <div class="edit-field">
+        <label>תת-כותרת</label>
+        <input type="text" data-target="#hero .subtitle" />
+      </div>
+      <div class="edit-field">
+        <label>הטקסט בתגית הזהב</label>
+        <input type="text" data-target="#hero .age-badge" />
+      </div>
+    </div>
+
+    <div class="edit-section">
+      <div class="edit-section-title">פרק א׳ — ההילה</div>
+      <div class="edit-field">
+        <label>כותרת הפרק</label>
+        <input type="text" data-target="section:nth-of-type(1) h2" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 1 — תאריך</label>
+        <input type="text" data-target=".tl-item:nth-child(1) .tl-date" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 1 — כותרת</label>
+        <input type="text" data-target=".tl-item:nth-child(1) .tl-title" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 2 — תאריך</label>
+        <input type="text" data-target=".tl-item:nth-child(2) .tl-date" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 2 — כותרת</label>
+        <input type="text" data-target=".tl-item:nth-child(2) .tl-title" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 3 — תאריך</label>
+        <input type="text" data-target=".tl-item:nth-child(3) .tl-date" />
+      </div>
+      <div class="edit-field">
+        <label>אירוע 4 — תאריך</label>
+        <input type="text" data-target=".tl-item:nth-child(4) .tl-date" />
+      </div>
+    </div>
+
+    <div class="edit-section">
+      <div class="edit-section-title">פרק ג׳ — לשון סיון</div>
+      <div class="edit-field">
+        <label>מה שהיא אומרת (שגוי)</label>
+        <input type="text" data-target=".card.pink-border .score-her, .card.pink-border [style*='color:var(--pink)']" data-custom="sivan-says" />
+      </div>
+      <div class="edit-field">
+        <label>מה שהתכוונה (נכון)</label>
+        <input type="text" data-custom="sivan-means" />
+      </div>
+    </div>
+
+    <div class="edit-section">
+      <div class="edit-section-title">פרק ד׳ — ילדים</div>
+      <div class="edit-field">
+        <label>כותרת הפרק</label>
+        <input type="text" data-target="section:nth-of-type(4) h2" />
+      </div>
+    </div>
+
+    <div class="edit-section">
+      <div class="edit-section-title">עמוד סיום</div>
+      <div class="edit-field">
+        <label>כותרת</label>
+        <input type="text" data-target="#final h2" />
+      </div>
+      <div class="edit-field">
+        <label>חתימה</label>
+        <input type="text" data-target=".signature" />
+      </div>
+      <div class="edit-field">
+        <label>הודעת הסיום (טקסט חופשי)</label>
+        <textarea rows="4" data-custom="final-msg"></textarea>
+      </div>
+    </div>
+
+    <div class="edit-section">
+      <div class="edit-section-title">36 סיבות — ערוך כל אחת</div>
+      <div id="reasons-edit-fields"></div>
+    </div>
+
+  </div>
+  <div id="edit-panel-footer">
+    <button class="btn-save" onclick="saveEdits()">💾 שמור</button>
+    <button class="btn-reset" onclick="resetEdits()">איפוס</button>
+  </div>
+</div>
+
+<div class="save-toast" id="save-toast">נשמר! ✓</div>
+
+<script>
+// ── FADE IN ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── MUSIC ──
+let playing = false;
+function toggleMusic() {
+  const btn = document.getElementById('music-btn');
+  const audio = document.getElementById('bg-audio');
+  if (!playing) {
+    audio.play();
+    playing = true;
+    btn.textContent = '♫';
+    btn.style.color = '#e8748a';
+    btn.style.borderColor = '#e8748a';
+  } else {
+    audio.pause();
+    playing = false;
+    btn.textContent = '♪';
+    btn.style.color = 'var(--gold)';
+    btn.style.borderColor = 'var(--gold)';
+  }
+}
+
+// ── CONFETTI ──
+function spawnConfetti() {
+  const colors = ['#c9a84c', '#e8748a', '#ffffff', '#ffd700'];
+  for (let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.width = el.style.height = (Math.random() * 6 + 4) + 'px';
+      el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      el.style.animationDelay = (Math.random() * 2) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 6000);
+    }, i * 100);
+  }
+}
+window.addEventListener('load', () => setTimeout(spawnConfetti, 800));
+
+// ── EDIT PANEL ──
+const STORAGE_KEY = 'sivan_edits_v1';
+
+function toggleEditPanel() {
+  document.getElementById('edit-panel').classList.toggle('open');
+}
+
+// Build the 36 reason fields dynamically
+function buildReasonFields() {
+  const container = document.getElementById('reasons-edit-fields');
+  const cards = document.querySelectorAll('.reason-card');
+  cards.forEach((card, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const text = card.childNodes[card.childNodes.length - 1].textContent.trim();
+    const div = document.createElement('div');
+    div.className = 'edit-field';
+    div.innerHTML = `<label>${num}</label><input type="text" data-reason="${i}" value="${text.replace(/"/g, '&quot;')}" />`;
+    container.appendChild(div);
+  });
+}
+
+// Load saved values into fields and DOM
+function loadSaved() {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  // Simple selector-based fields
+  document.querySelectorAll('[data-target]').forEach(input => {
+    const sel = input.getAttribute('data-target');
+    const el = document.querySelector(sel);
+    if (!el) return;
+    const key = 'sel:' + sel;
+    if (saved[key] !== undefined) {
+      el.textContent = saved[key];
+    }
+    input.value = el.textContent.trim();
+  });
+
+  // Custom fields
+  if (saved['final-msg'] !== undefined) {
+    document.querySelector('[data-custom="final-msg"]').value = saved['final-msg'];
+    applyFinalMsg(saved['final-msg']);
+  } else {
+    const finalP = document.querySelector('#final p');
+    if (finalP) document.querySelector('[data-custom="final-msg"]').value = finalP.innerText.trim();
+  }
+
+  // Reason cards
+  const cards = document.querySelectorAll('.reason-card');
+  document.querySelectorAll('[data-reason]').forEach(input => {
+    const idx = parseInt(input.getAttribute('data-reason'));
+    const key = 'reason:' + idx;
+    if (saved[key] !== undefined) {
+      const card = cards[idx];
+      const numEl = card.querySelector('.num');
+      const numText = numEl ? numEl.outerHTML : '';
+      card.innerHTML = numText + saved[key];
+    }
+    input.value = cards[idx].childNodes[cards[idx].childNodes.length - 1].textContent.trim();
+  });
+}
+
+function applyFinalMsg(text) {
+  const finalP = document.querySelector('#final p');
+  if (finalP && text) {
+    finalP.innerHTML = text.replace(/\n/g, '<br>');
+  }
+}
+
+function saveEdits() {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  // Selector fields
+  document.querySelectorAll('[data-target]').forEach(input => {
+    const sel = input.getAttribute('data-target');
+    const el = document.querySelector(sel);
+    if (!el) return;
+    const val = input.value.trim();
+    if (val) {
+      el.textContent = val;
+      saved['sel:' + sel] = val;
+    }
+  });
+
+  // Final message
+  const finalMsg = document.querySelector('[data-custom="final-msg"]').value.trim();
+  if (finalMsg) {
+    saved['final-msg'] = finalMsg;
+    applyFinalMsg(finalMsg);
+  }
+
+  // Reason cards
+  const cards = document.querySelectorAll('.reason-card');
+  document.querySelectorAll('[data-reason]').forEach(input => {
+    const idx = parseInt(input.getAttribute('data-reason'));
+    const val = input.value.trim();
+    if (val) {
+      const card = cards[idx];
+      const numEl = card.querySelector('.num');
+      const numHTML = numEl ? numEl.outerHTML : '';
+      card.innerHTML = numHTML + val;
+      saved['reason:' + idx] = val;
+    }
+  });
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  showToast();
+}
+
+function resetEdits() {
+  if (!confirm('למחוק את כל השינויים ולחזור למקור?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+
+function showToast() {
+  const t = document.getElementById('save-toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+window.addEventListener('load', () => {
+  buildReasonFields();
+  loadSaved();
+  setTimeout(spawnConfetti, 800);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "candy-crush",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "3456", "/Users/Ehood/Desktop/Sivan Birthday"],
+      "port": 3456
+    }
+  ]
+}

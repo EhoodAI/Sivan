@@ -521,21 +521,6 @@
     padding-bottom: 0.4rem;
     border-bottom: 1px solid rgba(201,168,76,0.12);
   }
-  .tl-dz {
-    margin-top: 0.6rem;
-    border: 1.5px dashed rgba(201,168,76,0.25);
-    border-radius: 8px;
-    padding: 0.4rem 0.6rem;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .tl-dz.over { border-color: var(--gold); background: rgba(201,168,76,0.07); }
-  .tl-dz-hint { font-size: 0.7rem; color: rgba(201,168,76,0.4); display: block; text-align: center; }
-  .tl-dz-photos { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.35rem; }
-  .tl-dz-wrap { position: relative; }
-  .tl-dz-wrap img { width: 72px; height: 72px; object-fit: cover; border-radius: 7px; cursor: pointer; display: block; }
-  .tl-dz-wrap button { position: absolute; top: -4px; left: -4px; width: 17px; height: 17px; background: rgba(0,0,0,0.75); color: #fff; border: none; border-radius: 50%; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-
   /* ─── PARALLAX WORLD ─── */
   #pworld {
     position: fixed;
@@ -718,7 +703,7 @@
         <span class="highlight">אבא אליצור החליט לגדל אותך כמו בן</span> — כי הבן הבכור יצא קצת שלומיאל וחנון, כך שלא נוראה לך ברירה אלא לסוע על רולרבליידס ולשחק בכדור. שום ברבי לא תהיה פה.<br><br>
         יצא שגדלת חזקה, עצמאית, ויודעת להוביל. תודה ליאור.
       </div>
-      <div class="tl-dz" data-zone="born"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
+      <div class="gallery-grid" style="margin-top:0.75rem;" id="born-gallery"><script>(function(){var p=['photos/נולדת/05707e33-cb57-4cce-a13b-11c921d9526d.JPG','photos/נולדת/0597fc1e-9de7-4dec-8e51-13ab1b8429af.JPG','photos/נולדת/137481b2-6dfc-456e-8d33-955d13d51ebe.JPG','photos/נולדת/3762b20b-6fc8-4585-b4ad-2f2f63f48463.JPG','photos/נולדת/6f72e4a5-a0d5-41af-8532-8bf734f02f39.JPG','photos/נולדת/92d447cf-7365-4ba6-94d7-f2f0d8efee53.JPG','photos/נולדת/c58eab9e-2f8d-4af4-a4d8-726553ed95e2.JPG','photos/נולדת/d580cee7-d25e-4b60-b574-3a9bed5952e1.JPG','photos/נולדת/e826471e-df6b-4313-b894-81f995eb6a06.JPG','photos/נולדת/ebc11d22-1391-44cb-bcce-f9a4a5b552c2.JPG','photos/נולדת/fba65982-3fdf-4d96-8a25-2d5d1d88fd71.JPG'];document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('born-gallery');p.forEach(function(s,i){var img=document.createElement('img');img.src=encodeURI(s);img.className='gallery-thumb';img.loading='lazy';img.onclick=function(){lbImages=p.map(function(x){return{src:encodeURI(x),caption:''};});openLightbox(i);};g.appendChild(img);});});})()</script></div>
     </div>
 
     <div class="tl-item" data-zone="school">
@@ -731,7 +716,7 @@
         פעם אחת הגיעה יועצת סוציאלית הביתה. הסתכלה סביב. <em>אמרה — אין סיכוי שבבית כזה תצא ילדה שלא לומדת.</em><br><br>
         ובכל זאת — רצו שתהיי חלק בכל דבר. במסע פולין בי״א, כבר לא למדת שם. <span class="highlight">עדיין רצו שתהיי.</span>
       </div>
-      <div class="tl-dz" data-zone="school"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
+      <div class="gallery-grid" style="margin-top:0.75rem;" id="school-gallery"><script>(function(){var p=['photos/יסודי/1650db92-00d9-4ebd-ab14-8fa322342ac7.JPG','photos/יסודי/7333ed13-f671-4872-be2c-9618d9b05842.JPG','photos/יסודי/a5a414bc-64ec-4a62-9804-0309b4ca1cf7.JPG','photos/יסודי/ee111164-def2-40d2-8209-ab6f8d2f2397.JPG','photos/יסודי/fe104e08-b0b8-48b7-897d-9d2988dd8e05.JPG','photos/פרק א׳/2/16a94a8f-dd8f-4f71-b767-756e2567d6dc.JPG','photos/פרק א׳/2/1996be78-3ecf-42cc-857e-006a10bf8e07.JPG','photos/פרק א׳/2/1bab9f2e-c81a-4d28-b25a-6f5ac1fc49ad.JPG','photos/פרק א׳/2/29a2e32d-4b11-421e-9960-43c0dadae4ba.JPG','photos/פרק א׳/2/3914a56c-5174-48c7-b228-66fc23b8e901.JPG','photos/פרק א׳/2/3f7e426b-cbda-448d-87da-3fc05324969c.JPG','photos/פרק א׳/2/49d05f25-f678-4fae-8e5e-f6da26063602.JPG','photos/פרק א׳/2/69ac25f0-82cf-4091-a7df-932314495890.JPG','photos/פרק א׳/2/832a7939-12ba-425f-98ea-5b73771afd8e.JPG','photos/פרק א׳/2/aa04850c-55be-4ddf-a902-f8fca3b46aea.JPG','photos/פרק א׳/2/d07250e7-1727-4a86-9b8e-3d5bd5cf2ed3.JPG','photos/פרק א׳/2/d5e2ee66-55e0-4893-94ce-916ae61666f7.JPG','photos/פרק א׳/2/e2049ed8-0cf1-43dc-899f-f652e57fe6f9.JPG','photos/פרק א׳/2/ede2716f-70cb-4fdd-af64-ea7c5a18b762.JPG','photos/פרק א׳/2/fb76b388-0f66-4934-b92a-f8b060f28b23.JPG'];document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('school-gallery');p.forEach(function(s,i){var img=document.createElement('img');img.src=encodeURI(s);img.className='gallery-thumb';img.loading='lazy';img.onclick=function(){lbImages=p.map(function(x){return{src:encodeURI(x),caption:''};});openLightbox(i);};g.appendChild(img);});});})()</script></div>
     </div>
 
     <div class="tl-item" data-zone="army">
@@ -741,7 +726,6 @@
         חיל הים. בק״שית באילת. מזהה כל דג שמסתובב בים האדום — עוברת מבסיס אחד לבסיס שני.<br>
         <span class="highlight">על סקייטבורד.</span>
       </div>
-      <div class="tl-dz" data-zone="army"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
     <div class="tl-subheader">אחרי הצבא</div>
@@ -754,7 +738,6 @@
         <em>כמובן שחזרת מסטולה לחלוטין מכדורי שינה לטיסות.</em><br><br>
         ובכל זאת — <span class="highlight">את מבינה אנשים יותר טוב מדוברי אנגלית שוטפת — כי אין עליך בפנטומימה.</span>
       </div>
-      <div class="tl-dz" data-zone="east"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
     <div class="tl-item" data-zone="blonde">
@@ -764,7 +747,6 @@
         <span class="highlight">מזל שאז נכנס לחיים יואל הספר המלך מבזל והציל את המצב — ובעיקר אותך.</span><br><br>
         אף אחד לא מאמין שהיית בלונדינית. הנה הוכחה.
       </div>
-      <div class="tl-dz" data-zone="blonde"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
     <div class="tl-item" data-zone="uni">
@@ -776,7 +758,6 @@
         ובין השיעורים? ארגנת אירוע התרמה לסטודנטים, וכמובן שנבחרת למועצת הסטודנטים. <span class="highlight">כי כשסיון נמצאת בחדר — היא לא יושבת בצד.</span><br><br>
         חיה בבלו החברות בסלון והחיים מעניינים — תודה שלמדת את זה, כי את עושה לי סדר במוח.
       </div>
-      <div class="tl-dz" data-zone="uni"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
     <div class="tl-item" data-zone="tlv">
@@ -787,7 +768,6 @@
         תמיד ממגנטת. תמיד נותנת יותר ממה שקיבלת. לפעמים זה פגע בך.<br>
         אבל נשארת בדיוק מי שאת — עם הלב הכי גדול בעולם.
       </div>
-      <div class="tl-dz" data-zone="tlv"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
 
     <div class="tl-item" data-zone="before2019">
@@ -800,7 +780,6 @@
         <em style="color:rgba(255,255,255,0.4);">זה היה יהונתן. אחיך. ילד בן ה-22.</em><br><br>
         אבל כולם הגיעו בדיוק בזמן להכין אותך לרגע שתהיי מסוגלת כבר לראות את ההילה סביבי — בחתונה של דינו ונועה.
       </div>
-      <div class="tl-dz" data-zone="before2019"><span class="tl-dz-hint">+ גרור תמונה</span><div class="tl-dz-photos"></div></div>
     </div>
   </div>
 </section>
@@ -924,6 +903,8 @@
 
   </div>
 
+  <div class="gallery-grid" style="margin-top:0.75rem;" id="wedding-gallery"><script>(function(){var p=['photos/חתונה/28a30635-5e69-4ef0-8ed6-3345b3cac562.jpg','photos/חתונה/317096e6-3f7a-4a90-8190-dd1f53a16508.jpg','photos/חתונה/78d45fe6-8efa-44b2-92a2-39f938d8dac5.jpg','photos/חתונה/Chuppah(71).jpg','photos/חתונה/IMG_5924.JPG','photos/חתונה/IMG_5928.JPG','photos/חתונה/IMG_5930.JPG','photos/חתונה/d50bf691-45af-4222-b708-6f4c52d452d4.jpg','photos/חתונה/dedd0043-f2d9-4e43-b76a-6f083e5681d4.jpg'];document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('wedding-gallery');p.forEach(function(s,i){var img=document.createElement('img');img.src=encodeURI(s);img.className='gallery-thumb';img.loading='lazy';img.onclick=function(){lbImages=p.map(function(x){return{src:encodeURI(x),caption:''};});openLightbox(i);};g.appendChild(img);});});})()</script></div>
+
   <div style="margin-top:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; max-width:600px; margin-inline:auto;">
     <video controls style="width:100%; border-radius:12px;" preload="metadata" poster="photos/Sivan And Ehood Formal Promo Wedding.mp4.png">
       <source src="video/wedding/Sivan And Ehood Formal Promo Wedding.mp4" type="video/mp4">
@@ -943,6 +924,7 @@
         מסיבות. בילואים. ואז — <span class="highlight">נכנסים לברגהיין.</span><br>
         אבל יוצאים מהר — כי דינו ונועה רצו לאכול ארוחת צהריים. מה, לא נצטרף??
       </div>
+      <div class="gallery-grid" style="margin-top:0.75rem;" id="berlin-gallery"><script>(function(){var p=['photos/ברלין/14884ef6-2f5d-4a83-83a2-1145dbc9da6a.jpg','photos/ברלין/4b32af8b-a0db-448d-be62-976630ef6769.jpg','photos/ברלין/6eadbe01-0bff-44c5-b6df-444f9df82bbd.jpg','photos/ברלין/79bfabd6-7b56-4947-ace0-34f499fa1598.jpg','photos/ברלין/d4a09023-817e-4419-a21c-49f9c0b5d336.jpg'];document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('berlin-gallery');p.forEach(function(s,i){var img=document.createElement('img');img.src=encodeURI(s);img.className='gallery-thumb';img.loading='lazy';img.onclick=function(){lbImages=p.map(function(x){return{src:encodeURI(x),caption:''};});openLightbox(i);};g.appendChild(img);});});})()</script></div>
     </div>
 
     <div class="tl-item">
@@ -2413,171 +2395,6 @@ window.addEventListener('load', () => {
   setTimeout(spawnConfetti, 800);
 });
 
-// ── DRAG & DROP (IndexedDB) ──
-const DZ_DB = 'sivan-drops', DZ_ST = 'photos';
-let _db = null;
-function dzDB() {
-  return new Promise((ok, err) => {
-    if (_db) return ok(_db);
-    const r = indexedDB.open(DZ_DB, 1);
-    r.onupgradeneeded = e => e.target.result.createObjectStore(DZ_ST, { keyPath: 'id' });
-    r.onsuccess = e => { _db = e.target.result; ok(_db); };
-    r.onerror = err;
-  });
-}
-async function dzSave(id, blob) {
-  const db = await dzDB();
-  return new Promise((ok, err) => { const tx = db.transaction(DZ_ST,'readwrite'); tx.objectStore(DZ_ST).put({id,blob}); tx.oncomplete=ok; tx.onerror=err; });
-}
-async function dzAll() {
-  const db = await dzDB();
-  return new Promise((ok,err) => { const r = db.transaction(DZ_ST,'readonly').objectStore(DZ_ST).getAll(); r.onsuccess=()=>ok(r.result); r.onerror=err; });
-}
-async function dzDel(id) {
-  const db = await dzDB();
-  return new Promise((ok,err) => { const tx = db.transaction(DZ_ST,'readwrite'); tx.objectStore(DZ_ST).delete(id); tx.oncomplete=ok; tx.onerror=err; });
-}
-
-function dzRender(zoneEl, id, blob) {
-  const url = URL.createObjectURL(blob);
-  const photos = zoneEl.querySelector('.tl-dz-photos');
-  const hint = zoneEl.querySelector('.tl-dz-hint');
-  if (hint) hint.style.display = 'none';
-  const wrap = document.createElement('div'); wrap.className = 'tl-dz-wrap';
-  const img = document.createElement('img'); img.src = url;
-  img.onclick = () => { lbImages = [{src:url,caption:''}]; openLightbox(0); };
-  const btn = document.createElement('button'); btn.textContent = '×';
-  btn.onclick = async e => { e.stopPropagation(); await dzDel(id); wrap.remove(); if (!photos.children.length && hint) hint.style.display = ''; };
-  wrap.append(img, btn); photos.appendChild(wrap);
-}
-
-async function dzInit() {
-  document.querySelectorAll('.tl-dz').forEach(zone => {
-    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
-    zone.addEventListener('dragleave', () => zone.classList.remove('over'));
-    zone.addEventListener('drop', async e => {
-      e.preventDefault(); zone.classList.remove('over');
-      for (const f of Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'))) {
-        const id = zone.dataset.zone + '__' + Date.now() + '__' + f.name;
-        await dzSave(id, f); dzRender(zone, id, f);
-      }
-    });
-    zone.addEventListener('click', e => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'BUTTON') return;
-      const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.multiple=true;
-      inp.onchange = async () => {
-        for (const f of Array.from(inp.files)) {
-          const id = zone.dataset.zone + '__' + Date.now() + '__' + f.name;
-          await dzSave(id, f); dzRender(zone, id, f);
-        }
-      };
-      inp.click();
-    });
-  });
-  // restore
-  try {
-    const all = await dzAll();
-    all.forEach(({id, blob}) => {
-      // support both old format (zone_ts_name) and new (zone__ts__name)
-      const zone = id.includes('__') ? id.split('__')[0] : id.split('_')[0];
-      const el = document.querySelector(`.tl-dz[data-zone="${zone}"]`);
-      if (el) dzRender(el, id, blob);
-    });
-  } catch(e) { console.warn('dz restore:', e); }
-}
-
-// ── שמירת תמונות לתיקייה + קיבוע בקוד ──
-async function dzSaveToFolder() {
-  const all = await dzAll();
-  if (!all.length) { alert('אין תמונות שמורות'); return; }
-
-  let rootDir;
-  try {
-    rootDir = await window.showDirectoryPicker({ mode: 'readwrite', startIn: 'desktop' });
-  } catch(e) { return; }
-
-  // בנה תיקיות
-  let photosDir, chapterDir, timelineDir;
-  try {
-    photosDir   = await rootDir.getDirectoryHandle('photos', { create: true });
-    chapterDir  = await photosDir.getDirectoryHandle('פרק א׳', { create: true });
-    timelineDir = await chapterDir.getDirectoryHandle('timeline', { create: true });
-  } catch(e) { alert('שגיאה ביצירת תיקיות: ' + e.message); return; }
-
-  const saved = []; // { zone, path }
-  for (const {id, blob} of all) {
-    const zone = id.includes('__') ? id.split('__')[0] : id.split('_')[0];
-    const rawName = id.includes('__') ? id.split('__')[2] : id.split('_').slice(2).join('_');
-    const filename = zone + '_' + rawName;
-    try {
-      const fh = await timelineDir.getFileHandle(filename, { create: true });
-      const w  = await fh.createWritable();
-      await w.write(blob);
-      await w.close();
-      saved.push({ zone, path: 'photos/פרק א׳/timeline/' + filename });
-    } catch(e) { console.warn('skip', filename, e); }
-  }
-
-  // שלח למנהל לעדכון הקוד
-  const map = {};
-  saved.forEach(({zone, path}) => { if (!map[zone]) map[zone] = []; map[zone].push(path); });
-  const summary = Object.entries(map)
-    .map(([z,ps]) => z + ': ' + ps.length + ' תמונות')
-    .join('\n');
-  alert('נשמרו ' + saved.length + ' תמונות ✓\n\n' + summary + '\n\nעכשיו תעתיק את הטקסט הזה ל-Claude כדי שיקבע את הנתיבים בקוד.');
-
-  // הורד JSON למפה מלאה
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([JSON.stringify(map, null, 2)], {type:'application/json'}));
-  a.download = 'photo-map.json'; a.click();
-}
-
-document.addEventListener('DOMContentLoaded', dzInit);
-
-// ── תמונות סטטיות לפרק א׳ ──
-const STATIC_ZONE_PHOTOS = {
-  born: [
-    'photos/נולדת/05707e33-cb57-4cce-a13b-11c921d9526d.JPG',
-    'photos/נולדת/0597fc1e-9de7-4dec-8e51-13ab1b8429af.JPG',
-    'photos/נולדת/137481b2-6dfc-456e-8d33-955d13d51ebe.JPG',
-    'photos/נולדת/3762b20b-6fc8-4585-b4ad-2f2f63f48463.JPG',
-    'photos/נולדת/6f72e4a5-a0d5-41af-8532-8bf734f02f39.JPG',
-    'photos/נולדת/92d447cf-7365-4ba6-94d7-f2f0d8efee53.JPG',
-    'photos/נולדת/c58eab9e-2f8d-4af4-a4d8-726553ed95e2.JPG',
-    'photos/נולדת/d580cee7-d25e-4b60-b574-3a9bed5952e1.JPG',
-    'photos/נולדת/e826471e-df6b-4313-b894-81f995eb6a06.JPG',
-    'photos/נולדת/ebc11d22-1391-44cb-bcce-f9a4a5b552c2.JPG',
-    'photos/נולדת/fba65982-3fdf-4d96-8a25-2d5d1d88fd71.JPG'
-  ],
-  school: [
-    'photos/יסודי/1650db92-00d9-4ebd-ab14-8fa322342ac7.JPG',
-    'photos/יסודי/7333ed13-f671-4872-be2c-9618d9b05842.JPG',
-    'photos/יסודי/a5a414bc-64ec-4a62-9804-0309b4ca1cf7.JPG',
-    'photos/יסודי/ee111164-def2-40d2-8209-ab6f8d2f2397.JPG',
-    'photos/יסודי/fe104e08-b0b8-48b7-897d-9d2988dd8e05.JPG'
-  ]
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  Object.entries(STATIC_ZONE_PHOTOS).forEach(([zone, paths]) => {
-    const dz = document.querySelector(`.tl-dz[data-zone="${zone}"]`);
-    if (!dz) return;
-    const photos = dz.querySelector('.tl-dz-photos');
-    const hint = dz.querySelector('.tl-dz-hint');
-    if (hint) hint.style.display = 'none';
-    paths.forEach((src, i) => {
-      const wrap = document.createElement('div'); wrap.className = 'tl-dz-wrap';
-      const img = document.createElement('img');
-      img.src = encodeURI(src); img.loading = 'lazy';
-      img.onclick = () => {
-        lbImages = paths.map(p => ({ src: encodeURI(p), caption: '' }));
-        openLightbox(i);
-      };
-      wrap.appendChild(img);
-      photos.appendChild(wrap);
-    });
-  });
-});
 </script>
 
 <!-- ═══════════════════════════════════════════════════

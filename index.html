@@ -676,7 +676,7 @@
 
 <!-- PARALLAX BALLOON WORLD -->
 <div id="pworld" aria-hidden="true">
-  <!-- Soft glow blobs (slowest) -->
+  <!-- Soft glow blobs only -->
   <div class="ps ps-1" data-pspeed="0.05"></div>
   <div class="ps ps-2" data-pspeed="0.04"></div>
   <div class="ps ps-3" data-pspeed="0.06"></div>
@@ -685,19 +685,6 @@
   <div class="ps ps-6" data-pspeed="0.06"></div>
   <div class="ps ps-7" data-pspeed="0.05"></div>
   <div class="ps ps-8" data-pspeed="0.04"></div>
-  <!-- Balloons (medium speed, each different) -->
-  <div class="pb pb-1"  data-pspeed="0.18" data-pbob="4.5s"><div class="pbi"></div></div>
-  <div class="pb pb-2"  data-pspeed="0.26" data-pbob="5.2s"><div class="pbi"></div></div>
-  <div class="pb pb-3"  data-pspeed="0.14" data-pbob="6.1s"><div class="pbi"></div></div>
-  <div class="pb pb-4"  data-pspeed="0.30" data-pbob="4.8s"><div class="pbi"></div></div>
-  <div class="pb pb-5"  data-pspeed="0.20" data-pbob="5.5s"><div class="pbi"></div></div>
-  <div class="pb pb-6"  data-pspeed="0.22" data-pbob="6.3s"><div class="pbi"></div></div>
-  <div class="pb pb-7"  data-pspeed="0.35" data-pbob="4.2s"><div class="pbi"></div></div>
-  <div class="pb pb-8"  data-pspeed="0.16" data-pbob="5.8s"><div class="pbi"></div></div>
-  <div class="pb pb-9"  data-pspeed="0.28" data-pbob="4.6s"><div class="pbi"></div></div>
-  <div class="pb pb-10" data-pspeed="0.19" data-pbob="5.1s"><div class="pbi"></div></div>
-  <div class="pb pb-11" data-pspeed="0.32" data-pbob="3.9s"><div class="pbi"></div></div>
-  <div class="pb pb-12" data-pspeed="0.23" data-pbob="6.4s"><div class="pbi"></div></div>
 </div>
 
 <!-- HERO -->
@@ -712,7 +699,6 @@
 
 <!-- MUSIC BUTTON -->
 <button id="music-btn" title="הפעל מוזיקה" onclick="toggleMusic()">♪</button>
-<button id="export-btn" title="שמור תמונות לתיקייה" onclick="dzSaveToFolder()" style="position:fixed;bottom:4rem;left:1rem;z-index:900;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:var(--gold);border-radius:50%;width:44px;height:44px;font-size:1rem;cursor:pointer;">💾</button>
 <audio id="bg-audio" loop preload="none">
   <source src="music/México en la piel - Luis Miguel (Video Oficial).mp3" type="audio/mpeg">
 </audio>
@@ -855,7 +841,7 @@
       <div class="tl-date">כמה ימים אחרי</div>
       <div class="tl-title">״אני רוצה מישהו כמו אהוד״</div>
       <div class="tl-text">
-        חברה ניסתה להכיר לך מישהו. אמרת לה:<br>
+        נעם מדמוב ניסתה להכיר לך מישהו. אמרת לה:<br>
         <em style="color:var(--pink);">״לא רוצה — אני רוצה מישהו יותר כמו אהוד.״</em><br><br>
         היא אמרה: <em>״אהה, אהוד? אז בואי אארגן לך את אהוד.״</em><br><br>
         דינו דיבר איתי. אני לא האמנתי שהאוצר הזה הגיע אליי.
@@ -867,8 +853,7 @@
       <div class="tl-title">קפה אירופה — הדייט הראשון</div>
       <div class="tl-text">
         מרגריטה. שתיים. שלוש.<br>
-        בשלב מסוים החלקת את הכוס שלך לכוס שלי — בלי שאמרת מילה. <span class="highlight">גאונות טהורה.</span><br><br>
-        ידעתי שאני בצרות.
+        בשלב מסוים החלקת את הכוס שלך לכוס שלי — בלי שאמרת מילה. <span class="highlight">הייתי כל כך שיכור שכמעט הצלחתי להגיע לרגליים.</span>
       </div>
     </div>
 
@@ -876,10 +861,11 @@
       <div class="tl-date">דייט שלישי</div>
       <div class="tl-title">שש-בש ו״אל תתרגלי״</div>
       <div class="tl-text">
-        התערבנו: מי שמפסיד — מבשל לשני.<br>
-        <span class="highlight">את 7, אני 2.</span><br><br>
-        הכנתי לך ארוחה מפנקת. הגשתי בחיוך ואמרתי:<br>
-        <em style="color:var(--gold); font-size:1.05rem;">״אל תתרגלי.״</em>
+        התערבנו על שש-בש: מי שמפסיד — מבשל לשני.<br>
+        <span class="highlight">ניצחת אותי 7-2. הרגשתי מושפל — אבל לא היה לי סיכוי.</span><br><br>
+        הכנתי לך ארוחה מפנקת. הגשתי בחיוך ואמרתי 14 פעמים:<br>
+        <em style="color:var(--gold); font-size:1.05rem;">״אל תתרגלי.״</em><br><br>
+        התרגלת?
       </div>
     </div>
 
@@ -887,23 +873,21 @@
       <div class="tl-date">תחילת הקשר</div>
       <div class="tl-title">את נתת לי את הגב</div>
       <div class="tl-text">
-        הייתי בחדרת ביצוע — עסוק, עמוק, לא זמין כמו שהייתי צריך להיות.<br>
-        את לא לחצת. לא דרשת. הלכתי לטיפול — <span class="highlight">ואת הצטרפת אליי.</span><br><br>
-        פעם אחת הייתי בטוח שאת עומדת לפרד ממני — חיכיתי לך מחוץ למסודרות, הכנתי את עצמי.<br>
+        הייתי בחדרת ביצוע — את אמרת מההתחלה, ואני שמעתי אחרי חודש.<br>
+        את לא לחצת. לא דרשת — רק הסברת. הלכתי לטיפול — <span class="highlight">ואת הצטרפת אליי.</span><br><br>
+        הייתי בטוח שאת עומדת להיפרד ממני.<br>
         ובמקום זה נתת לי ביטחון. אמרת לי שאת מאמינה בנו.<br><br>
-        חצי שנה — ואת לא אמרת מילה. <span class="highlight">רק האמנת.</span>
+        <span class="highlight">את האמנת.</span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">שנה אחרי — 2020</div>
+      <div class="tl-date">6.11.2020</div>
       <div class="tl-title">הצעת נישואין בפיג׳מה</div>
       <div class="tl-text">
-        בבוקר — בבית שלנו, בסלון, בפיג׳מה — שאלתי אותך.<br>
-        <span class="highlight">בלי הפתעות. בלי מסעדה. רק אנחנו.</span><br><br>
-        אחרי זה הלכתי לבקש את ידך מהוריך.<br>
-        ובערב — מפגש משפחות ראשון.<br><br>
-        כל זה באותו יום אחד.
+        בבוקר — בבית שלנו, בסלון, בפיג׳מה — הצעתי לך.<br>
+        <span class="highlight">ואת אמרת כןןןןן.</span><br><br>
+        ובערב — מפגש משפחות שהיה כיף ומרגש.
       </div>
     </div>
 
@@ -933,21 +917,31 @@
       <div class="tl-date">1–2.7.2021</div>
       <div class="tl-title">כוכב הים — שני ימים שלא נגמרו</div>
       <div class="tl-text">
-        לא עשינו חתונה. עשינו <span class="highlight">פסטיבל.</span><br><br>
-        יומיים בכוכב הים. כל מי שאנחנו אוהבים. רקדנו מאחרי החופה עד 6 אחה"צ למחרת.<br>
-        אף אחד לא הלך הביתה.
-        אף אחד לא רצה.
+        עשינו חתונה. עשינו <span class="highlight">פסטיבל.</span><br><br>
+        יומיים בכוכב הים. כל מי שאנחנו אוהבים. רקדנו מאחרי החופה עד 6 אחה"צ למחרת.
       </div>
     </div>
+
+  </div>
+
+  <div style="margin-top:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; max-width:600px; margin-inline:auto;">
+    <video controls style="width:100%; border-radius:12px;" preload="metadata" poster="video/wedding/Sivan And Ehood Formal Promo Wedding.mp4.png">
+      <source src="video/wedding/Sivan And Ehood Formal Promo Wedding.mp4" type="video/mp4">
+    </video>
+    <video controls style="width:100%; border-radius:12px;" preload="metadata" poster="video/wedding/AFTER.mp4.png">
+      <source src="video/wedding/AFTER.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="timeline" style="margin-top:2rem;">
 
     <div class="tl-item">
       <div class="tl-date">אחרי החתונה</div>
       <div class="tl-title">ברלין — פעם אחרונה לפני</div>
       <div class="tl-text">
         טסנו עם דינו ונועה לחגוג את החיים לפני שנכנסים להריון.<br>
-        מסיבות. לילות. ואז — <span class="highlight">ניסינו להיכנס לברגהיין.</span><br>
-        נכנסנו.<br>
-        יצאנו כי דינו ונועה חיכו בחוץ לארוחת צהריים.
+        מסיבות. בילואים. ואז — <span class="highlight">נכנסים לברגהיין.</span><br>
+        אבל יוצאים מהר — כי דינו ונועה רצו לאכול ארוחת צהריים. מה, לא נצטרף??
       </div>
     </div>
 
@@ -955,9 +949,9 @@
       <div class="tl-date">2022</div>
       <div class="tl-title">רני בדרך — מראים להורים</div>
       <div class="tl-text">
-        גילינו בהתרגשות גדולה.<br>
+        יום כן יום לא במשך חודש — הרמת רגליים והופ — <span class="highlight">גילינו בהתרגשות גדולה שאת בהריון.</span><br><br>
         ואז הגיע הרגע שמספרים להורים —<br>
-        <span class="highlight">יש סרטון. הוא שווה הכל.</span>
+        יש סרטון. הוא שווה הכל.
       </div>
     </div>
 
@@ -974,11 +968,12 @@
   <div class="timeline" style="margin-top:2rem;">
 
     <div class="tl-item">
-      <div class="tl-date">לידת רני</div>
-      <div class="tl-title">ירידת מים</div>
+      <div class="tl-date">3.6.2023 — לידת רני</div>
+      <div class="tl-title">ירידת מים במפרסת</div>
       <div class="tl-text">
-        הגיע הרגע.<br>
-        <span class="highlight">רני נולד.</span>
+        ירח מלא. תפוציפס שלא נהיינו רעבים. והופ — אפידורל, כמה דחיפות.<br><br>
+        <span class="highlight">הגיע הרגע ששינה את חיינו.</span><br><br>
+        רני נולד.
       </div>
     </div>
 
@@ -986,15 +981,15 @@
 
   <!-- סרטוני לידה -->
   <div style="margin-top:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; max-width:600px; margin-inline:auto;">
-    <video controls style="width:100%; border-radius:12px;" preload="metadata">
+    <video controls style="width:100%; border-radius:12px;" preload="metadata" poster="video/rani/birth/IMG_1340.MOV.png">
       <source src="video/rani/birth/IMG_1340.MOV" type="video/mp4">
     </video>
-    <video controls style="width:100%; border-radius:12px;" preload="metadata">
+    <video controls style="width:100%; border-radius:12px;" preload="metadata" poster="video/rani/birth/f790b98c-b304-46d1-acfc-efc028a76e78.MP4.png">
       <source src="video/rani/birth/f790b98c-b304-46d1-acfc-efc028a76e78.MP4" type="video/mp4">
     </video>
   </div>
   <div style="max-width:600px; margin-inline:auto; margin-top:0.75rem; border-radius:12px; overflow:hidden;">
-    <img src="video/rani/birth/IMG_1360.HEIC" style="width:100%; display:block; border-radius:12px;" loading="lazy" alt="לידת רני">
+    <img src="video/rani/birth/IMG_1360.jpg" style="width:100%; display:block; border-radius:12px;" loading="lazy" alt="לידת רני">
   </div>
 
   <div class="timeline" style="margin-top:2rem;">
@@ -1017,10 +1012,10 @@
     (function(){
       const rani1Photos = [
         'photos/רני 1 /4537a383-7c5c-4e4a-8763-d80a2638e89a.JPG',
-        'photos/רני 1 /IMG_2547.heic',
-        'photos/רני 1 /IMG_2554.HEIC',
-        'photos/רני 1 /IMG_2559.heic',
-        'photos/רני 1 /IMG_2580.HEIC'
+        'photos/רני 1 /IMG_2547.jpg',
+        'photos/רני 1 /IMG_2554.jpg',
+        'photos/רני 1 /IMG_2559.jpg',
+        'photos/רני 1 /IMG_2580.jpg'
       ];
       document.addEventListener('DOMContentLoaded', function() {
         const grid = document.getElementById('rani1-gallery');
@@ -1046,10 +1041,9 @@
       <div class="tl-date">2024</div>
       <div class="tl-title">מאי בדרך — במעלית</div>
       <div class="tl-text">
-        סיון סיימה להניק. עלתה במעלית במשרד, התקשרה אליי ואמרה:<br>
+        סיימת להניק. חזרת למשרד, עלית במעלית, התקשרת אליי ואמרת:<br>
         <em style="color:var(--pink);">״אני מרגישה סיון של פעם. חופשייה. חזקה.״</em><br><br>
-        סוף שבוע חתונה של ליאור.<br>
-        <span class="highlight">שם איברתי אותה.</span>
+        סוף שבוע חתונה של ליאור ושרון. <span class="highlight">אני ואת — ורני ישן לצידינו.</span>
       </div>
     </div>
 
@@ -1057,17 +1051,48 @@
       <div class="tl-date">חודש אחר כך</div>
       <div class="tl-title">מיון + פנימית + בהריון</div>
       <div class="tl-text">
-        חודש שלם סיון הרגישה לא טוב. רופאים בודקים — <span class="highlight">כל המדדים בשיא.</span> הכל מושלם על הנייר. אבל היא לא טוב.<br><br>
-        נשלחה למיון. אושפזה בפנימית.<br><br>
-        ביקשה שהרופאים יבואו בלעדיי. הפרצוף שלה לא היה לחוץ במיוחד.<br>
-        חשבתי לעצמי: <em style="color:rgba(255,255,255,0.5);">״או שהיא בהריון, או שיש לה סרטן.״</em><br><br>
-        <span class="highlight">היא הייתה בהריון.</span><br>
-        ככה גילינו על מאי.
+        חודש שלם הרגשת לא טוב. רופאים בודקים — <span class="highlight">כל המדדים בשיא.</span> הכל מושלם על הנייר. אבל לא טוב.<br><br>
+        נשלחת למיון. אושפזת בפנימית.<br><br>
+        ביקשת שהרופאים יבואו בלעדיי. הפרצוף שלך לא היה לחוץ במיוחד.<br>
+        חשבתי לעצמי: <em style="color:rgba(255,255,255,0.5);">״או שאת בהריון, או שיש לך סרטן.״</em><br><br>
+        <span class="highlight">היית בהריון — ושוק טוטאלי.</span><br>
+        ככה גילינו על מאי. 12.4.2025.
       </div>
     </div>
 
   </div>
 
+</section>
+
+<div class="divider">· · · · ·</div>
+
+<!-- SECTION: מכתב יום הולדת -->
+<section class="fade-in" style="max-width:700px;">
+  <div class="section-label">12.6.2026</div>
+  <h2>כמה מילים ביום המיוחד הזה</h2>
+  <p style="color:rgba(255,255,255,0.55); margin-bottom:2rem;">אחרי האירוע הבלתי נשכח במסעדת מושיק.</p>
+
+  <div style="font-size:1.05rem; line-height:1.9; color:rgba(255,255,255,0.88);">
+    <p><span class="highlight">סיון אשתי — אהבת חיי, השורשים שלי בעולם הזה.</span></p>
+
+    <p>את בת 36. ואני כל כך שמח שהעולם הזה קיבל אותך — ושאני זוכה לראות אותך מקרוב בחיים. ואין דבר יותר יפה מזה. מאיך שאת פועלת, ואיך שאת חושבת, וממה שאכפת לך.</p>
+
+    <p>זכיתי שאני זה שמעביר איתך את הגנטיקה שלך הלאה. יש לך ערכים שאני מאושר שהילדים שלנו לומדים ממך, ויש בך ביטחון ששומר עלי חזק.</p>
+
+    <p>תודה שאת כנה, שלמה, ומלאה בחיים — ודואגת עד הסוף. לא רק לי, לרני ומאי, אלא לכל מי שחשוב לך.</p>
+
+    <p>תמשיכי לדחוף קדימה ולהאמין בעצמך — <span class="highlight">את הגעת. לא סיימת — הגעת.</span> אמא פלוס שניים, עם זוגיות שתמיד מחפשת להשתפר וקריירה שמעוררת בך יצרים חיוביים. באמת הגעת. ואת תמשיכי עד שתשיגי את אשר על ליבך — אבל אז תרצי עוד 😅 אני יודע את זה.</p>
+
+    <p>השנה — <span class="highlight">זו השנה שלך.</span> שנה של הגשמה, של הכרה עצמית מחודשת. לא בשביל משהו או בשביל ציפייה מסוימת ממך. רק בשבילך. שתרשי לעצמך לקבל ולא רק לתת. שתצחקי יותר ממה שאת חושבת שאת יכולה. שתרגישי שאת אהובה — כי את כן, כל רגע, מכולנו — גם כשלפעמים זה לא מרגיש ככה.</p>
+
+    <p>עכשיו כשאנחנו מתחילים לקבל קצת אוויר ויש יותר וודאות בחיים, אני מרגיש שהגיע הזמן שלנו. הזמן שלנו לחזור לטרוף את החיים ביחד. להמשיך להיות המשפחה המטורפת והחזקה שאנחנו, לחזק ולשמור על הזוגיות שלנו, על השיחות אל תוך הלילה, על הצחוקים, ועל החיבוק הנעים במיטה בחדר שלנוווו.</p>
+
+    <p>אני רוצה לאחל לך לשנה הקרובה — שתרשי לעצמך לעוף, להשתחרר ולשמוח בתוך כל העומס של החיים. שתרגישי מלאה, שלמה ומסופקת בכל צעד שאת עושה. ושתדעי, בלי שום רגשות אשם, לקחת את הזמן שמגיע לך — כי מגיע לך הכי טוב שיש בעולם הזה.</p>
+
+    <p>חשוב לי שתדעי שאני כאן, מקשיב לכל משפט ולכל מבט שלך, לומד ומשתפר כל יום כדי להיות הבן זוג שמגיע לך. אנחנו משתנים ומתקדמים — והחיים זזים מהר. אז בואי נגלוש עליהם. <span class="highlight">אנחנו לגמרי בדרך הנכונה.</span></p>
+
+    <p style="font-size:1.15rem; margin-top:2rem;"><strong>אוהב אותך יותר מהכל, הכי בעולם.</strong></p>
+  </div>
 </section>
 
 <div class="divider">· · · · ·</div>
@@ -1084,155 +1109,13 @@
 
 <div class="divider">· · · · ·</div>
 
-<!-- SECTION 2: לוח התוצאות -->
-<section class="fade-in">
-  <div class="section-label">פרק ד׳ — בונוס</div>
-  <h2>לוח התוצאות הרשמי 🏆</h2>
-  <p>הטורניר הגדול בכל הזמנים ביבשת מרכז אמריקה הצפונית. <span class="highlight">הסטטיסטיקות לא משקרות — ואת יודעת את זה.</span></p>
-
-  <div class="scoreboard">
-    <div class="scoreboard-title">סיכום כללי — כל הזמנים</div>
-
-    <div class="score-row">
-      <div class="score-game">ששבש</div>
-      <div class="score-numbers">
-        <span class="score-me">14</span>
-        <span class="score-vs">:</span>
-        <span class="score-her">17 <span class="winner-badge">סיון ✓</span></span>
-      </div>
-    </div>
-
-    <div class="score-row">
-      <div class="score-game">שחמט</div>
-      <div class="score-numbers">
-        <span class="score-me">5</span>
-        <span class="score-vs">:</span>
-        <span class="score-her">12 <span class="winner-badge">סיון ✓</span></span>
-      </div>
-    </div>
-
-    <div class="score-row">
-      <div class="score-game">שיטהד</div>
-      <div class="score-numbers">
-        <span class="score-me">3</span>
-        <span class="score-vs">:</span>
-        <span class="score-her">5 <span class="winner-badge">סיון ✓</span></span>
-      </div>
-    </div>
-
-    <div class="score-row">
-      <div class="score-game">פוקר סיני</div>
-      <div class="score-numbers">
-        <span class="score-win">7 <span style="color:var(--gold); font-size:0.7rem; background:rgba(201,168,76,0.15); border-radius:20px; padding:0.1em 0.5em;">אהוד ✓</span></span>
-        <span class="score-vs">:</span>
-        <span class="score-me">3</span>
-      </div>
-    </div>
-
-    <div class="score-row">
-      <div class="score-game">קאבו</div>
-      <div class="score-numbers">
-        <span class="score-win">40 <span style="color:var(--gold); font-size:0.7rem; background:rgba(201,168,76,0.15); border-radius:20px; padding:0.1em 0.5em;">אהוד ✓</span></span>
-        <span class="score-vs">:</span>
-        <span class="score-me">21</span>
-      </div>
-    </div>
-
-    <div class="score-row">
-      <div class="score-game">כדורעף חופים (ביחד נגד העולם)</div>
-      <div class="score-numbers">
-        <span class="score-win" style="color:var(--gold)">3 נצחונות</span>
-        <span class="score-vs">/</span>
-        <span class="score-me">2 הפסדים</span>
-      </div>
-    </div>
-
-    <div style="padding: 0.8rem 1.2rem; text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.4);">
-      ובשש-בש, ששם: לפני שהכרנו — הדייט הראשון — סיון 7, אהוד 2
-    </div>
-  </div>
-
-  <p style="text-align:center; font-size:0.9rem; color:rgba(255,255,255,0.4);">
-    * בשחמט ובששבש — אין ויכוח. את מנצחת.<br>
-    * בפוקר ובקאבו — אני מנצח. אבל ב-60% מהמשחקים את "עייפה" ו"לא ממוקדת".<br>
-    * בכדורעף — אנחנו יחד, ולכן תמיד נצחנו.
-  </p>
-</section>
-
-<div class="divider">· · · · ·</div>
-
 <!-- SECTION 3: סיון בלוגוס -->
 <section class="fade-in">
   <div class="section-label">פרק ד׳</div>
   <h2>השפה שלך — מילון לא רשמי</h2>
   <p>את פועלת ללא לולאה פונולוגית. זה לא חסרון — זה פיצ׳ר.</p>
 
-  <div class="card pink-border" style="margin-top:1.5rem;">
-    <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:0.8rem; letter-spacing:0.1em;">דוגמא קנונית</div>
-    <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
-      <div style="text-align:center; flex:1; min-width:120px;">
-        <div style="font-size:0.7rem; color:rgba(255,255,255,0.4); margin-bottom:0.3rem;">מה שאת אומרת</div>
-        <div style="font-size:1.2rem; font-weight:700; color:var(--pink);">Great mind — Tinkerbel</div>
-      </div>
-      <div style="font-size:1.5rem; color:rgba(255,255,255,0.2);">→</div>
-      <div style="text-align:center; flex:1; min-width:120px;">
-        <div style="font-size:0.7rem; color:rgba(255,255,255,0.4); margin-bottom:0.3rem;">מה שהתכוונת</div>
-        <div style="font-size:1.2rem; font-weight:700; color:var(--gold);">Great minds think alike</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="card" style="margin-top:0.75rem;">
-    <div style="font-size:0.9rem; color:rgba(255,255,255,0.6);">ביטוי נוסף לאוסף:</div>
-    <div style="font-size:1rem; margin-top:0.5rem; line-height:1.7;">
-      <span class="highlight">״אני מביאה משהו מהמטבח״</span>
-      <span style="color:rgba(255,255,255,0.5);"> = </span>
-      <span>אהוד, קום תביא.</span>
-    </div>
-    <div style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin-top:0.5rem;">
-      * עדיין לא ברור אם זה רמז עדין או אסטרטגיה מתוחכמת. שתי האפשרויות מרשימות.
-    </div>
-  </div>
-</section>
-
-<div class="divider">· · · · ·</div>
-
-<!-- SECTION 4: הילדים -->
-<section class="fade-in">
-  <div class="section-label">פרק ה׳</div>
-  <h2>רני ומאי</h2>
-
-  <div class="card gold-border">
-    <div style="font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.6rem;">רני, 3</div>
-    <p style="margin:0; font-size:0.97rem;">
-      פעם אחת נגמר האוכל במקרר. רני רעב. הבאנו לו טחינה על לחם יבש.
-      הוא הסתכל על הצלחת, טעם, ואמר:
-    </p>
-    <div style="font-size:2rem; text-align:center; margin:1rem 0;">מממ 😋</div>
-    <p style="margin:0; font-size:0.88rem; color:rgba(255,255,255,0.5); text-align:center;">
-      ילד מרוצה. ממ. גאווה.
-    </p>
-  </div>
-
-  <div class="card pink-border" style="margin-top:1rem;">
-    <div style="font-size:0.75rem; color:var(--pink); letter-spacing:0.1em; margin-bottom:0.6rem;">מאי, שנה ו-2 חודשים</div>
-    <p style="margin:0; font-size:0.97rem;">
-      מאי עושה דבר אחד שלא ניתן להסביר במילים:
-    </p>
-    <div style="font-size:3.5rem; text-align:center; margin:1rem 0; letter-spacing:0.1em;">
-      אוווו 😮
-    </div>
-    <p style="margin:0; font-size:0.88rem; color:rgba(255,255,255,0.5); text-align:center;">
-      פה מעוגל. עיניים ענקיות. הלב נמס.
-    </p>
-  </div>
-
-  <div class="quote-block" style="margin-top:2rem;">
-    <p>
-      ״היית בילנית מספר 1 — יצאת עד הצהריים, הלכת למסיבות הכי שוות.
-      ופתאום עם הילדים — <span class="highlight">טוטאלית לגמרי</span>. הכיף שלך זה המשפחה שלך עכשיו.״
-    </p>
-  </div>
 </section>
 
 <div class="divider">· · · · ·</div>
@@ -1663,8 +1546,8 @@ const DESTINATIONS = [
   {
     id: 'olbush',
     name: 'אולבוש',
-    note: 'שבועיים, אותה מסעדה, מקיקיקו 🎵',
-    emoji: '🎵',
+    note: 'שבועיים, אותה מסעדה, מקיקיקו',
+    emoji: '🌿',
     color: '#c9a84c',
     lat: 38.65, lng: 26.5,
     photos: []
@@ -1922,53 +1805,6 @@ document.addEventListener('DOMContentLoaded', initMap);
   </div>
 </section>
 
-<div class="divider">· · · · ·</div>
-
-<!-- SECTION 7: 36 סיבות -->
-<section class="fade-in">
-  <div class="section-label">פרק ח׳</div>
-  <h2>36 דברים שאני אוהב בך</h2>
-  <p>אחת לכל שנה. (היה קשה לעצור ב-36.)</p>
-
-  <div class="reasons-grid">
-    <div class="reason-card"><span class="num">01</span>הטוטאליות שלך</div>
-    <div class="reason-card"><span class="num">02</span>שראית הילה במקומות הנכונים</div>
-    <div class="reason-card"><span class="num">03</span>שאת אמא שמשקיעה את הכל</div>
-    <div class="reason-card"><span class="num">04</span>שמחצת אותי בשחמט 12:5</div>
-    <div class="reason-card"><span class="num">05</span>הצחוק שלך</div>
-    <div class="reason-card"><span class="num">06</span>Great mind Tinkerbel</div>
-    <div class="reason-card"><span class="num">07</span>שנותנת מעצמך לחברים ולמשפחה</div>
-    <div class="reason-card"><span class="num">08</span>שרוקדת איתי כל החיים</div>
-    <div class="reason-card"><span class="num">09</span>הפרצוץ אוווו של מאי — זה ממך</div>
-    <div class="reason-card"><span class="num">10</span>שהעברת לי את הכוס ולא שמתי לב</div>
-    <div class="reason-card"><span class="num">11</span>הכנות שלך</div>
-    <div class="reason-card"><span class="num">12</span>שמגיעה הביתה ועושה כביסה</div>
-    <div class="reason-card"><span class="num">13</span>הרגישות שלך</div>
-    <div class="reason-card"><span class="num">14</span>שאת רצה לרקוד בחתונות</div>
-    <div class="reason-card"><span class="num">15</span>שרואה פתרונות לפני שיש בעיה</div>
-    <div class="reason-card"><span class="num">16</span>שניצחת אותי 7:2 בדייט הראשון</div>
-    <div class="reason-card"><span class="num">17</span>האיכפתיות האמיתית שלך</div>
-    <div class="reason-card"><span class="num">18</span>שאת לא מודעת כמה את מיוחדת</div>
-    <div class="reason-card"><span class="num">19</span>שאוהבת לחגוג את החיים</div>
-    <div class="reason-card"><span class="num">20</span>שהצחקת אותי בפורים ולא ידעת</div>
-    <div class="reason-card"><span class="num">21</span>המקיקיקו שרק את יודעת</div>
-    <div class="reason-card"><span class="num">22</span>שמלמדת אותי דברים בלי לנסות</div>
-    <div class="reason-card"><span class="num">23</span>שנותנת את כל כולך בכל דבר</div>
-    <div class="reason-card"><span class="num">24</span>שרני ומאי זכו בך</div>
-    <div class="reason-card"><span class="num">25</span>הצחוק שלך בכל מצב</div>
-    <div class="reason-card"><span class="num">26</span>שמפשרת בין לב לשכל</div>
-    <div class="reason-card"><span class="num">27</span>שלא אוהבת לאכול — חוסכת זמן</div>
-    <div class="reason-card"><span class="num">28</span>שמסתכלת על דברים אחרת מכולם</div>
-    <div class="reason-card"><span class="num">29</span>שסודרת לך את האדום בספה</div>
-    <div class="reason-card"><span class="num">30</span>שאוהבת אנשים באמת</div>
-    <div class="reason-card"><span class="num">31</span>שהלכת איתי ברגל הביתה בדייט הראשון</div>
-    <div class="reason-card"><span class="num">32</span>גוטי, רוני, דניאל, דינו, נועה — החברים שבחרת</div>
-    <div class="reason-card"><span class="num">33</span>שחולמת על בית ועל בת</div>
-    <div class="reason-card"><span class="num">34</span>שמנצחת גם ביפן עם שני ילדים</div>
-    <div class="reason-card"><span class="num">35</span>שתמיד נמצאת לידי</div>
-    <div class="reason-card" style="background:rgba(232,116,138,0.1); border-color:rgba(232,116,138,0.4);"><span class="num">36</span>שאת את</div>
-  </div>
-</section>
 
 <!-- FINAL -->
 <div id="final">
@@ -1977,8 +1813,8 @@ document.addEventListener('DOMContentLoaded', initMap);
   <h2>יום הולדת שמח</h2>
   <p>
     זכינו. את ממש זכינו.<br><br>
-    שנה של בית, של בת, של ריקוד, של מקיקיקו, של קפה שנגמר לפני שהספקת להביא אותו מהמטבח.<br><br>
-    <span class="gold">אני אוהב אותך, יפה שלי. ✨</span>
+    שנה של בית, של כיף, של ריקוד, של מקיקיקו, של חיבוקים והגשמה עצמית.<br><br>
+    <span class="gold">אנחנו אוהבים אותך יותר מהכל הכי בעולם. ✨</span>
   </p>
   <div class="signature">אהוד, רני ומאי 💛</div>
   <div style="margin-top:3rem; font-size:0.8rem; color:rgba(255,255,255,0.2);">12.6.2026</div>
@@ -2153,7 +1989,6 @@ document.addEventListener('DOMContentLoaded', initMap);
 </style>
 
 <!-- EDIT TOGGLE BUTTON -->
-<button id="edit-toggle" onclick="toggleEditPanel()">✏️ עריכה</button>
 
 <!-- EDIT PANEL -->
 <div id="edit-panel">
@@ -2911,12 +2746,51 @@ document.addEventListener('DOMContentLoaded', () => {
   #music-btn, #export-btn, #edit-toggle {
     transition: transform 0.15s cubic-bezier(.22,.68,0,1.2) !important;
   }
+
+  /* ── SVG scroll path ── */
+  #scroll-path {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 490;
+    overflow: visible;
+  }
+  #sp-dot {
+    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px var(--b-pink));
+    transition: opacity 0.3s;
+  }
 </style>
 
 <!-- Scroll progress bar -->
 <div id="scroll-bar"></div>
 <!-- Section nav dots -->
 <nav id="section-nav" aria-label="ניווט מהיר"></nav>
+<!-- SVG scroll path -->
+<svg id="scroll-path" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="path-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#6BC5F8"/>
+      <stop offset="20%"  stop-color="#C06CF8"/>
+      <stop offset="40%"  stop-color="#FF6BA8"/>
+      <stop offset="60%"  stop-color="#FFD93D"/>
+      <stop offset="80%"  stop-color="#6BCB77"/>
+      <stop offset="100%" stop-color="#FF9240"/>
+    </linearGradient>
+    <filter id="path-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- trail (gray) -->
+  <path id="sp-trail" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-linecap="round"/>
+  <!-- progress (colored, drawn on scroll) -->
+  <path id="sp-progress" fill="none" stroke="url(#path-grad)" stroke-width="2.5"
+        stroke-linecap="round" filter="url(#path-glow)"/>
+  <!-- glowing dot at tip -->
+  <circle id="sp-dot" r="5" fill="#fff" filter="url(#path-glow)"/>
+</svg>
 
 <script>
 // ── SCROLL PROGRESS BAR ──
@@ -3065,6 +2939,117 @@ document.addEventListener('DOMContentLoaded', () => {
       burstConfetti(60);
     }
   }, { passive: true });
+})();
+
+// ── SVG SCROLL PATH ──
+(function() {
+  const trail    = document.getElementById('sp-trail');
+  const progress = document.getElementById('sp-progress');
+  const dot      = document.getElementById('sp-dot');
+  if (!trail || !progress || !dot) return;
+
+  const W = window.innerWidth;
+  // Waypoints: left-center of page, alternating left/right with gentle curves
+  // x positions: weave between 8% and 22% of width (left strip)
+  const X_MID   = W * 0.06;   // center column of the path strip
+  const X_SWING = W * 0.028;  // how far left/right it swings
+
+  let sections = [];
+  let pathD    = '';
+  let totalLen = 0;
+
+  function buildPath() {
+    sections = Array.from(document.querySelectorAll('section, #final'));
+    const vH = window.innerHeight;
+    const bodyH = document.body.scrollHeight;
+
+    // Build a smooth SVG path in viewport-relative coords (0..1 progress mapped to scroll)
+    // We'll use a fixed-position SVG so coords are in viewport space.
+    // The path goes from top to bottom of viewport as user scrolls.
+    // We represent it as a series of points spread over the scrollable height,
+    // then project to viewport on each scroll event.
+
+    // Points in document space (y = absolute document Y, x = viewport x)
+    const pts = [];
+    const count = sections.length + 2;
+    for (let i = 0; i < count; i++) {
+      const t = i / (count - 1);
+      const docY = t * bodyH;
+      const swing = Math.sin(i * Math.PI) * X_SWING;
+      pts.push({ docY, x: X_MID + swing });
+    }
+    window._spPts = pts;
+
+    // Build the full trail path (document-space, redrawn on scroll to viewport)
+    redraw();
+  }
+
+  function docToVP(docY) {
+    return docY - window.scrollY;
+  }
+
+  function redraw() {
+    const pts = window._spPts;
+    if (!pts || pts.length < 2) return;
+
+    const scrollY = window.scrollY;
+    const bodyH   = document.body.scrollHeight - window.innerHeight;
+    const pct     = bodyH > 0 ? Math.min(scrollY / bodyH, 1) : 0;
+
+    // Convert all points to viewport Y
+    const vpts = pts.map(p => ({ x: p.x, y: docToVP(p.docY) }));
+
+    // Build smooth cubic bezier path through all points
+    function buildD(points) {
+      if (points.length < 2) return '';
+      let d = `M ${points[0].x} ${points[0].y}`;
+      for (let i = 1; i < points.length; i++) {
+        const prev = points[i - 1];
+        const curr = points[i];
+        const cpY  = (prev.y + curr.y) / 2;
+        d += ` C ${prev.x} ${cpY}, ${curr.x} ${cpY}, ${curr.x} ${curr.y}`;
+      }
+      return d;
+    }
+
+    const fullD = buildD(vpts);
+    trail.setAttribute('d', fullD);
+
+    // Draw progress: interpolate along the path
+    // Find the point at scroll pct
+    const totalPts = vpts.length - 1;
+    const progressIdx = pct * totalPts;
+    const i0 = Math.floor(progressIdx);
+    const i1 = Math.min(i0 + 1, totalPts);
+    const frac = progressIdx - i0;
+
+    // Get sub-path up to progress point
+    const subPts = [...vpts.slice(0, i0 + 1)];
+    // Add interpolated tip
+    const tip = {
+      x: vpts[i0].x + (vpts[i1].x - vpts[i0].x) * frac,
+      y: vpts[i0].y + (vpts[i1].y - vpts[i0].y) * frac
+    };
+    subPts.push(tip);
+
+    progress.setAttribute('d', buildD(subPts));
+    dot.setAttribute('cx', tip.x);
+    dot.setAttribute('cy', tip.y);
+
+    // Color the dot based on scroll progress
+    const hue = Math.round(pct * 300);
+    dot.setAttribute('fill', `hsl(${hue}, 90%, 75%)`);
+  }
+
+  // Build on load
+  window.addEventListener('load', buildPath);
+  buildPath();
+
+  // Redraw on scroll
+  window.addEventListener('scroll', redraw, { passive: true });
+
+  // Rebuild on resize
+  window.addEventListener('resize', buildPath);
 })();
 
 // ── SECTION TITLE RAINBOW LETTERS ──

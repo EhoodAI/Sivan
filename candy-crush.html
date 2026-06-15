@@ -375,11 +375,12 @@
 </div>
 
 <div class="overlay" id="win-overlay">
-  <div class="modal">
+  <div class="modal" style="max-width:340px;">
     <div class="modal-emoji">🎉</div>
-    <h2>כל הכבוד!</h2>
-    <p>את פשוט מדהימה סיון! השגת את היעד.<br>אוהב אותך 💕</p>
-    <button class="btn" onclick="startGame()">שחקי שוב!</button>
+    <h2>כל הכבוד כוסית עלללל שלי!</h2>
+    <img id="win-photo" src="" alt="" style="width:100%; border-radius:16px; margin:12px 0; display:block; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+    <p style="font-size:1.05rem; line-height:1.6;">את הדבר הכי סקסי בעולם<br>ובא לי עליך תמיד!<br><br>💕 אני אוהב אותך 💕</p>
+    <button class="btn" onclick="startGame()" style="margin-top:16px;">שחקי שוב!</button>
   </div>
 </div>
 
@@ -616,7 +617,7 @@ async function trySwap(r1,c1,r2,c2) {
   }
   await processMatches(matches);
   animating = false;
-  if (score >= GOAL) { document.getElementById('win-overlay').classList.add('show'); return; }
+  if (score >= GOAL) { showWin(); return; }
   if (moves <= 0)    { document.getElementById('lose-overlay').classList.add('show'); return; }
 }
 
@@ -710,6 +711,13 @@ function showScorePop(matches, pts) {
   pop.style.top  = (br.top  + avgR * cellSize) + 'px';
   document.body.appendChild(pop);
   setTimeout(() => pop.remove(), 1000);
+}
+
+function showWin() {
+  const img = document.getElementById('win-photo');
+  const p = ['photos','משחק','IMG_4810.jpeg'].join('/');
+  img.src = p;
+  document.getElementById('win-overlay').classList.add('show');
 }
 
 function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
